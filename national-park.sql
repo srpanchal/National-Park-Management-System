@@ -94,7 +94,7 @@ create table Types_of_Tours_Managed;
 create table Languages_Known_Tour_Guide;
 	(emp_id			id_type,
 	language 	varchar(20),
-	foreign key emp_id references Tour_Guide(emp_id)
+	foreign key (emp_id) references Tour_Guide(emp_id)
 	);
 
 create table Tour;
@@ -103,8 +103,10 @@ create table Tour;
 	guide		id_type,
 	cost		numeric(5,2),
 	route		varchar(20),
+	managed_by	id_type,
 	primary key (actv_id),
-	foreign key (guide) references Employee(emp_id)
+	foreign key (guide) references Employee(emp_id),
+	foreign key (managed_by) references Tour_Guide(emp_id)
 	);
 
 
