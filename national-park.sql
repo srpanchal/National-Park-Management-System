@@ -20,7 +20,7 @@ create table Emp_Phone_No;
 	(emp_id		id_type,
 	phone_no 	numeric(10),
 	primary key (emp_id, phone_no),
-	foreign key (emp_id) references Employee(emp_id)
+	foreign key (emp_id) references Employee(emp_id) on delete cascade
 	);
 
 create table Ticket_Issuer;
@@ -45,8 +45,8 @@ create table Ticket;
 	issued_by		id_type not null,
 	bought_by		varchar(10),
 	primary key (ticket_id),
-	foreign key (issued_by) references Employee(emp_id),
-	foreign key (bought_by) references Tourist(tourist_id)
+	foreign key (issued_by) references Employee(emp_id) on delete set null,
+	foreign key (bought_by) references Tourist(tourist_id) on delete set null
 	);
 
 create table Activity;
@@ -59,8 +59,8 @@ create table Activity_Booking;
 	(tourist_id		id_type,
 	actv_id			id_type,
 	booking_date	datetime,
-	foreign key (tourist_id) references Tourist(tourist_id),
-	foreign key (actv_id) references Activity(actv_id)
+	foreign key (tourist_id) references Tourist(tourist_id) on delete set null,
+	foreign key (actv_id) references Activity(actv_id) on delete set null
 	);
 
 create table Camping;
@@ -88,13 +88,13 @@ create table Tour_Guide;
 create table Types_of_Tours_Managed;
 	(emp_id			id_type,
 	type_of_tour 	varchar(20),
-	foreign key emp_id references Tour_Guide(emp_id)
+	foreign key emp_id references Tour_Guide(emp_id) on delete cascade
 	);
 
 create table Languages_Known_Tour_Guide;
 	(emp_id			id_type,
 	language 	varchar(20),
-	foreign key (emp_id) references Tour_Guide(emp_id)
+	foreign key (emp_id) references Tour_Guide(emp_id) on delete cascade
 	);
 
 create table Tour;
@@ -105,8 +105,16 @@ create table Tour;
 	route		varchar(20),
 	managed_by	id_type,
 	primary key (actv_id),
-	foreign key (guide) references Employee(emp_id),
-	foreign key (managed_by) references Tour_Guide(emp_id)
+	foreign key (guide) references Employee(emp_id) on delete set null,
+	foreign key (managed_by) references Tour_Guide(emp_id) on delete set null
+	);
+
+create table Tourist_Guided_By;
+	(tourist_id		id_type,
+	emp_id		id_type,
+	primary key (tourist_id, emp_id),
+	foreign key (tourist_id) references Tourist(tourist_id) on delete set null,
+	foreign key (emp_id) references Tour_Guide(emp_id) on delete set null,
 	);
 
 
@@ -114,3 +122,4 @@ create table Tour;
 
 
 ------------------------------------
+
