@@ -123,3 +123,111 @@ create table Tourist_Guided_By;
 
 ------------------------------------
 
+
+create table Department_Manager (
+	emp_id		id_type,
+	primary key (emp_id),
+	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
+);
+
+create table Department (
+	dept_id		id_type,
+	dept_name	varchar(50),
+	dept_mgr	id_type,
+	primary key (dept_id),
+	foreign key (dept_mgr) references Department_Manager(emp_id) on delete cascade on update cascade
+);
+
+create table Inventory (
+	inv_id			id_type,
+	name			varchar(50),
+	category		varchar(50),
+	quantity		int,
+	cost_per_item	numeric,
+	primary key (inv_id)
+);
+
+create table Manage_Inventory (
+	emp_id		id_type,
+	inv_id		id_type,
+	primary key (emp_id, inv_id),
+	foreign key (emp_id) references Department_Manager(emp_id) on delete cascade on update cascade,
+	foreign key (inv_id) references Inventory(inv_id) on delete cascade on update cascade
+);
+
+
+create table Accounts_Clerk (
+	emp_id		id_type,
+	primary key (emp_id),
+	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
+);
+
+
+create table Account (
+	transaction_id	id_type,
+	type			varchar(50),
+	pupose			varchar(50),
+	amount			numeric,
+	details			varchar(50),
+	primary key (transaction_id)
+);
+
+
+create table Manage_Account (
+	emp_id				id_type,
+	transaction_id		id_type,
+	primary key (emp_id, transaction_id),
+	foreign key (emp_id) references Accounts_Clerk(emp_id) on delete cascade on update cascade,
+	foreign key (transaction_id) references Account(transaction_id) on delete cascade on update cascade,
+);
+
+
+create table Forest_Officer (
+	emp_id		id_type,
+	post		varchar(20),
+	primary key (emp_id),
+	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
+);
+
+create table Species (
+	species_id		id_type,
+	name			varchar(50),
+	age				int,
+	description		varchar(100),
+	gender			varchar(10),
+	category		varchar(50),
+	primary key (species_id)
+);
+
+create table Document_Species (
+	emp_id			id_type,
+	species_id		id_type,
+	primary key (emp_id, species_id),
+	foreign key (emp_id) references Forest_Officer(emp_id) on delete cascade on update cascade,
+	foreign key (species_id) references Species(species_id) on delete cascade on update cascade,
+);
+
+create table Veterinary_Doctor (
+	emp_id		id_type,
+	vet_type	varchar(20),
+	speciality	varchar(20),
+	degree		varchar(20),
+	primary key (emp_id),
+	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
+);
+
+create table Veterinary_Doc_Office_Hours (
+	emp_id			id_type,
+	office_hour		varchar(20),
+	primary key (emp_id, office_hour),
+	foreign key (emp_id) references Veterinary_Doctor(emp_id) on delete cascade on update cascade
+);
+
+
+create table Species_Doctor (
+	emp_id			id_type,
+	species_id		id_type,
+	primary key (emp_id, species_id),
+	foreign key (emp_id) references Veterinary_Doctor(emp_id) on delete cascade on update cascade,
+	foreign key (species_id) references Species(species_id) on delete cascade on update cascade,
+);
