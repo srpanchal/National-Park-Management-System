@@ -25,7 +25,8 @@ create table Emp_Phone_No;
 
 create table Ticket_Issuer;
 	(emp_id		id_type,
-	primary key (emp_id)
+	primary key (emp_id),
+	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
 	);
 
 create table Tourist;
@@ -43,10 +44,10 @@ create table Ticket;
 	tier			varchar(10),
 	tier_price		numeric(5,2),
 	issued_by		id_type not null,
-	bought_by		varchar(10),
+	bought_by		id_type,
 	primary key (ticket_id),
-	foreign key (issued_by) references Employee(emp_id) on delete set null,
-	foreign key (bought_by) references Tourist(tourist_id) on delete set null
+	foreign key (issued_by) references Ticket_Issuer(emp_id) on delete set null on update cascade,
+	foreign key (bought_by) references Tourist(tourist_id) on delete set null on update cascade
 	);
 
 create table Activity;
@@ -59,15 +60,16 @@ create table Activity_Booking;
 	(tourist_id		id_type,
 	actv_id			id_type,
 	booking_date	datetime,
-	foreign key (tourist_id) references Tourist(tourist_id) on delete set null,
-	foreign key (actv_id) references Activity(actv_id) on delete set null
+	foreign key (tourist_id) references Tourist(tourist_id) on delete set null on update cascade,
+	foreign key (actv_id) references Activity(actv_id) on delete set null on update cascade
 	);
 
 create table Camping;
 	(actv_id	id_type,
 	cost		numeric(5),
 	site		varchar(20),
-	primary key (actv_id)
+	primary key (actv_id),
+	foreign key actv_id references Activity(actv_id) on delete cascade on update cascade
 	);
 
 create table Hiking;
@@ -77,24 +79,28 @@ create table Hiking;
 	duration	numeric(5,2),
 	distance	numeric(5,2),
 	difficulty_level	varchar(20) check (difficulty_level in ('Easy', 'Moderate', 'Hard')), 
-	primary key (actv_id)
+	primary key (actv_id),
+	foreign key actv_id references Activity(actv_id) on delete cascade on update cascade
 	);
 
 create table Tour_Guide;
 	(emp_id		id_type,
-	primary key (emp_id)
+	primary key (emp_id),
+	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
 	);
 
 create table Types_of_Tours_Managed;
 	(emp_id			id_type,
 	type_of_tour 	varchar(20),
-	foreign key emp_id references Tour_Guide(emp_id) on delete cascade
+	primary key (emp_id, type_of_tour),
+	foreign key emp_id references Tour_Guide(emp_id) on delete cascade on update cascade
 	);
 
 create table Languages_Known_Tour_Guide;
 	(emp_id			id_type,
 	language 	varchar(20),
-	foreign key (emp_id) references Tour_Guide(emp_id) on delete cascade
+	primary key (emp_id, language),
+	foreign key (emp_id) references Tour_Guide(emp_id) on delete cascade on update cascade
 	);
 
 create table Tour;
@@ -105,11 +111,10 @@ create table Tour;
 	route		varchar(20),
 	managed_by	id_type,
 	primary key (actv_id),
-	foreign key (guide) references Employee(emp_id) on delete set null,
-	foreign key (managed_by) references Tour_Guide(emp_id) on delete set null
+	foreign key (guide) references Tour_Guide(emp_id) on delete set null on update cascade
 	);
 
-create table Tourist_Guided_By;
+create table Tourist_Guide;
 	(tourist_id		id_type,
 	emp_id		id_type,
 	primary key (tourist_id, emp_id),
