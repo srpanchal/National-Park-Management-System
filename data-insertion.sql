@@ -180,3 +180,77 @@ VALUES
 ('505',18),('505',19),('505',20),('505',21),('505',22),
 ('505',23),('140',24),('140',25),('140',26),('140',27),
 ('140',28),('140',29),('140',30),('140',31),('140',32);
+
+Insert into Accounts_CLerk(emp_id) values(114),(127),(145),(174),(208),(266),(27),(375),(450),(474),(486),(733),(90),(9);
+
+
+Insert into Accounts values
+(1,	Debit,	Repair,	5000,	Building repair for veterinary doctor)
+(2,	Debit,	Repair,	2000,	Fencing repair)
+(3,	Debit,	Salary,	9000000,	For year 2018)
+(4,	Debit,	Salary,	9000000,	For year 2017)
+(5,	Debit,	Repair,	800,	Vehicles servicing)
+(6,	Debit,	Salary,	9000000,	For year 2019)
+(7,	Debit,	Construction,	10000,	Constructing office building)
+(8,	Debit,	Logistics,	20000,	Misc)
+(9,	Debit,	Logistics,	2453,	Misc)
+(10,	Debit,	Logistics,	1234,	Misc)
+(11,	Credit,	Donation,	50000,	Government Donation);
+
+
+
+Insert into Accounts values
+('1','14'),
+('2','127'),
+('3','145'),
+('4','174'),
+('5','208'),
+('6','266'),
+('7','14'),
+('8','127'),
+('9','127),
+('10','174'),
+('11','14');
+
+Insert into Forest_Officer(emp_id) values (select emp_id from employees where role ='Forest officer');
+
+Insert into species values
+('1',	'Pronghorn',	23	,'Antilocapridae',	'M',	'Mammal'),
+('2',	'Bighorn Sheep',	42	,'Bovidae',	'M',	'Mammal'),
+('3',	'Elk',	11	,'Cervidae',	'M',	'Mammal'),
+('4',	'Mule Deer',	44	,'Cervidae',	'M',	'Mammal'),
+('5',	'Coyote',	5	,'Canidae',	'M',	'Mammal'),
+('6',	'Common Gray Fox',	22	,'Canidae',	'M',	'Mammal'),
+('7',	'Kit Fox',	1	,'Canidae',	'M',	'Mammal'),
+('8',	'Red Fox',	6	,'Canidae',	'M',	'Mammal'),
+('9',	'Bobcat',	7	,'Felidae',	'M',	'Mammal'),
+('10',	'Mountain Lion',	8	,'Felidae',	'M',	'Mammal'),
+('11',	'Striped Skunk',	21	,'Mephitidae',	'M',	'Mammal'),
+('12',	'Western Spotted Skunk',	24	,'Mephitidae',	'M',	'Mammal'),
+('13',	'Northern River Otter',	21	,'Mustelidae',	'M',	'Mammal'),
+('14',	'Long-tailed Weasel',	16	,'Mustelidae',	'M',	'Mammal'),
+('15',	'American Mink',	78	,'Mustelidae',	'M',	'Mammal'),
+('16',	'American Badger',	43	,'Mustelidae',	'F',	'Mammal'),
+('17',	'Ringtail',	3	,'Procyonidae',	'F',	'Mammal'),
+('18',	'Northern Raccoon',	7	,'Procyonidae',	'F',	'Mammal'),
+('19',	'American Black Bear',	87	,'Ursidae',	'M',	'Mammal'),
+('20',	'Big Free-tailed Bat',	6	,'Molossidae',	'M',	'Mammal'),
+('21',	'Brazilian Free-tailed Bat',	41	,'Molossidae',	'M',	'Mammal'),
+('22',	'Pallid Bat',	32	,'Vespertilionidae',	'F',	'Mammal'),
+('23',	'Townsend's Big-eared Bat',	14	,'Vespertilionidae',	'M',	'Mammal'),
+('24',	'Big Brown Bat',	16	,'Vespertilionidae',	'M',	'Mammal'),
+('25',	'Spotted Bat',	41	,'Vespertilionidae',	'M',	'Mammal'),
+('26',	'Allen's Big-eared Bat',	19	,'Vespertilionidae',	'F',	'Mammal'),
+('27',	'Silver-haired Bat',	20	,'Vespertilionidae',	'F',	'Mammal'),
+('28',	'Hoary Bat',	32	,'Vespertilionidae',	'F',	'Mammal'),
+('29',	'California Myotis',	4	,'Vespertilionidae',	'F',	'Mammal'),
+('30',	'Western Small-footed Myotis',	2	,'Vespertilionidae',	'F',	'Mammal'),
+('31',	'Long-eared Myotis',	6	,'Vespertilionidae',	'F',	'Mammal'),
+('32',	'Little Brown Myotis',	26	,'Vespertilionidae',	'M',	'Mammal'),
+('33',	'Fringed Myotis',	63	,'Vespertilionidae',	'F',	'Mammal'),
+('34',	'Long-legged Myotis',	46	,'Vespertilionidae',	'M',	'Mammal'),
+('35',	'Yuma Myotis',	63	,'Vespertilionidae',	'M',	'Mammal'),
+('36',	'Western Pipistrelle',	5	,'Vespertilionidae',	'M',	'Mammal'),
+('37',	'Black-tailed Jackrabbit',	22	,'Leporidae',	'F',	'Mammal'),
+('38',	'Desert Cottontail',	60	,'Leporidae',	'F',	'Mammal'),
+('39',	'American Beaver',	15	,'Castoridae',	'F',	'Mammal');
