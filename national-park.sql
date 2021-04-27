@@ -42,7 +42,7 @@ create table Ticket (
 	description		varchar(100),
 	tier			varchar(10),
 	tier_price		numeric(5,2),
-	issued_by		varchar(10) not null,
+	issued_by		varchar(10),
 	bought_by		varchar(10),
 	primary key (ticket_id),
 	foreign key (issued_by) references Ticket_Issuer(emp_id) on delete set null on update cascade,
@@ -116,10 +116,10 @@ create table Tour (
 
 create table Tourist_Guide (
 	tourist_id		varchar(10),
-	emp_id		varchar(10),
+	emp_id			varchar(10),
 	primary key (tourist_id, emp_id),
-	foreign key (tourist_id) references Tourist(tourist_id) on delete set null,
-	foreign key (emp_id) references Tour_Guide(emp_id) on delete set null
+	foreign key (tourist_id) references Tourist(tourist_id) on delete cascade on update cascade,
+	foreign key (emp_id) references Tour_Guide(emp_id) on delete cascade on update cascade
 	);
 
 
