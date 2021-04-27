@@ -110,7 +110,7 @@ create table Tour (
 	route		varchar(20),
 	managed_by	varchar(10),
 	primary key (actv_id),
-	foreign key (guide) references Tour_Guide(emp_id) on delete set null on update cascade,
+	foreign key (guide) references Employee(emp_id) on delete set null on update cascade,
 	foreign key (managed_by) references Tour_Guide(emp_id) on delete set null on update cascade
 	);
 
