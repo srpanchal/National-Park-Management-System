@@ -10,6 +10,10 @@ INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('6', 'Camping');
 INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('7', 'Camping');
 INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('8', 'Camping');
 INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('9', 'Tour');
+INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('20', 'Hiking');
+INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('21', 'Hiking');
+INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('22', 'Hiking');
+INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('23', 'Hiking');
 
 
 
@@ -26,16 +30,12 @@ INSERT INTO `Activity_Booking` (`tourist_id`, `actv_id`, `booking_date`) VALUES 
 
 
 
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('1', '401', 'labore');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('11', '242', 'provident');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('12', '283', 'sit');
+
 INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('14', '485', 'nihil');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('2', '265', 'et');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('3', '462', 'impedit');
 INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('6', '339', 'rem');
 INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('7', '219', 'consequatur');
 INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('8', '330', 'reiciendis');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('9', '215', 'dolores');
+
 
 
 
@@ -105,17 +105,11 @@ INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age
 
 
 
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('1', 'autem', '4.04', '45.15', '6.19', 'hard');
 INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('11', 'rerum', '11.07', '106.31', '27.28', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('12', 'nesciunt', '16.09', '63.20', '14.35', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('14', 'asperiores', '11.30', '74.96', '28.61', 'easy');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('2', 'labore', '7.27', '70.27', '23.05', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('3', 'provident', '16.25', '78.75', '23.19', 'hard');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('6', 'ea', '6.26', '111.24', '23.17', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('7', 'voluptas', '7.79', '41.04', '5.46', 'hard');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('8', 'suscipit', '6.69', '80.50', '19.24', 'easy');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('9', 'pariatur', '1.07', '86.54', '14.80', 'moderate');
-
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('20', 'nesciunt', '16.09', '63.20', '14.35', 'moderate');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('21', 'asperiores', '11.30', '74.96', '28.61', 'easy');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('22', 'labore', '7.27', '70.27', '23.05', 'moderate');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('23', 'provident', '16.25', '78.75', '23.19', 'hard');
 
 
 INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('1035026', 'hindi');
@@ -138,26 +132,24 @@ INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_
 
 
 INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('1035026');
-INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('1049406');
-INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('1138530');
-INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('1197817');
+INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('3202457');
+INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('3343944');
 INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('145731');
 
 
 
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('1', 'suv', '1035026', '204.07', 'quam', '1035026');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('11', 'jeep', '1049406', '286.01', 'ipsam', '1049406');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('12', 'jeep', '1138530', '264.78', 'omnis', '1138530');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('14', 'jeep', '1197817', '249.27', 'nisi', '1197817');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('2', 'suv', '145731', '408.46', 'est', '145731');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('1', 'suv', '1590047', '204.07', 'quam', '1590047');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('11', 'jeep', '3475379', '286.01', 'ipsam', '3475379');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('12', 'jeep', '3781558', '264.78', 'omnis', '3781558');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('14', 'jeep', '4626084', '249.27', 'nisi', '4626084');
 
 
 
-INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('1035026');
-INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('1049406');
-INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('1138530');
-INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('1197817');
-INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('145731');
+
+INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('1590047');
+INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('3475379');
+INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('3781558');
+INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('4626084');
 
 
 
@@ -185,18 +177,18 @@ INSERT INTO `Tourist` (`tourist_id`, `name`, `address`, `phone_no`, `email`) VAL
 
 
 
-INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('124474', '1035026');
-INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('131091', '1049406');
-INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('134404', '1138530');
-INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('137347', '1197817');
-INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('146294', '145731');
+INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('124474', '1590047');
+INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('131091', '3475379');
+INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('134404', '3781558');
+INSERT INTO `Tourist_Guide` (`tourist_id`, `emp_id`) VALUES ('137347', '4626084');
 
 
 
-INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('1035026', 'voluptas');
-INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('1049406', 'asperiores');
-INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('1138530', 'eveniet');
-INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('1197817', 'praesentium');
-INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('145731', 'dolore');
+
+INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('1590047', 'voluptas');
+INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('3475379', 'asperiores');
+INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('3781558', 'eveniet');
+INSERT INTO `Types_of_Tours_Managed` (`emp_id`, `type_of_tour`) VALUES ('4626084', 'praesentium');
+
 
 
