@@ -254,3 +254,37 @@ Insert into species values
 ('37',	'Black-tailed Jackrabbit',	22	,'Leporidae',	'F',	'Mammal'),
 ('38',	'Desert Cottontail',	60	,'Leporidae',	'F',	'Mammal'),
 ('39',	'American Beaver',	15	,'Castoridae',	'F',	'Mammal');
+
+
+-- Veterinary_Doctor
+INSERT INTO `Veterinary_Doctor` VALUES ('140','Veterinary specialis','Internal medicine',''),
+('173','Food safety and insp','Internal medicine',''),('229','Veterinary specialis','Critical care',''),
+('245','Companion-animal vet','Internal medicine',''),('29','Veterinary specialis','Critical care',''),
+('295','Veterinary specialis','Internal medicine',''),('39','Research veterinaria','Vet practitioners',''),
+('396','Food-animal veterina','Critical care',''),('404','Food-animal veterina','Vet practitioners',''),
+('412','Veterinary specialis','Critical care',''),('528','Companion-animal vet','Vet practitioners',''),
+('533','Research veterinaria','Internal medicine',''),('542','Food-animal veterina','Critical care',''),
+('579','Companion-animal vet','Internal medicine',''),('588','Companion-animal vet','Critical care',''),
+('671','Research veterinaria','Internal medicine',''),('841','Research veterinaria','Vet practitioners',''),
+('887','Research veterinaria','Vet practitioners',''),('91','Veterinary specialis','Internal medicine','');
+
+-- Veterinary_Doc_Office_Hours
+INSERT INTO `Veterinary_Doc_Office_Hours` VALUES ('140','11AM-3PM'),('173','10PM-10AM'),('229','2PM-12AM'),
+('245','11AM-3PM'),('29','10AM-8PM'),('295','10PM-10AM'),('39','10AM-8PM'),('396','2PM-12AM'),
+('404','10PM-10AM'),('412','10AM-8PM'),('528','10PM-10AM'),('533','11AM-3PM'),('542','11AM-3PM'),
+('579','8PM-8AM'),('588','2PM-12AM'),('671','8PM-8AM'),('841','8PM-8AM'),('887','10PM-10AM'),('91','10PM-10AM');
+
+-- Species_Doctor
+INSERT INTO `Species_Doctor` VALUES
+('140','39'),('140','7'),('142','1'),
+('142','33'),
+('143','2'),('143','6'),
+('145','15'),('146','18'),('148','13'),('149','34'),('149','4'),
+('150','20'),('150','36'),('151','13'),('151','36'),('151','37'),
+('151','38'),('153','1'),('153','24'),('154','10'),('154','17'),('154','27'),
+('154','5'),('157','11'),('158','14'),('158','26'),('159','17'),('159','20'),
+('159','29'),('159','32'),('159','8'),('160','37'),('160','8'),('162','31'),
+('162','34'),('163','20'),('163','38'),('164','12'),('164','36'),('165','12'),
+('165','33'),('165','34'),('166','24'),('166','27'),('166','29'),('166','4'),
+('168','22'),('169','32'),('170','23'),('171','27'),('171','28'),('171','8'),
+('172','15'),('172','20'),('172','21'),('172','23'),('172','39');
