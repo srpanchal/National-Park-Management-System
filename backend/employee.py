@@ -1,5 +1,6 @@
+import simplejson as json
 import config
-from flask import Flask
+from flask import Flask, make_response, jsonify
 from flask_mysql_connector import MySQL
 
 app = Flask(__name__)
@@ -15,8 +16,11 @@ get_all_employees = "SELECT * FROM Employee"
 
 @app.route('/get-all-employees')
 def new_cursor():
-    df = mysql.execute_sql(get_all_employees, to_pandas=True)
-    return str(df.to_dict())
+    conn = mysql.connection
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute(get_all_employees)
+    rows = cursor.fetchall()
+    return make_response(json.dumps(rows), 200)
 
 
 @app.route('/')
