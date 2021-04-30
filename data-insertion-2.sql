@@ -112,22 +112,22 @@ INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `
 INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('23', 'provident', '16.25', '78.75', '23.19', 'hard');
 
 
-INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('1035026', 'hindi');
-INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('1049406', 'english');
-INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('1138530', 'espaneol');
+INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('1590047', 'hindi');
+INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('3475379', 'english');
+INSERT INTO `Languages_Known_Tour_Guide` (`emp_id`, `language`) VALUES ('4626084', 'espaneol');
 
 
 
 INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('11722417', 'Repudiandae aspernatur blanditiis laudantium quaerat amet.', 'gold', '100.00', '1035026', '124474');
-INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('15889267', 'Vel animi illum hic officia sit.', 'diamond', '400.00', '1049406', '131091');
-INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('16051802', 'Cumque illo vitae similique voluptatibus.', 'platinum', '100.00', '1049406', '177908');
-INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('1629000', 'Magnam quam sed aliquam totam.', 'platinum', '300.00', '1197817', '137347');
+INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('15889267', 'Vel animi illum hic officia sit.', 'diamond', '400.00', '3202457', '131091');
+INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('16051802', 'Cumque illo vitae similique voluptatibus.', 'platinum', '100.00', '3202457', '177908');
+INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('1629000', 'Magnam quam sed aliquam totam.', 'platinum', '300.00', '145731', '137347');
 INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('19807411', 'Placeat dolor illum et sunt.', 'diamond', '300.00', '1035026', '147873');
 INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('2741708', 'Aut cum nihil voluptate aut.', 'gold', '100.00', '145731', '146294');
 INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('4813741', 'Molestiae ut repellendus quod voluptatem saepe minima modi.', 'diamond', '200.00', '145731', '210733');
-INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('5468822', 'Esse aut est aperiam quia consequuntur.', 'diamond', '300.00', '1138530', '20870');
-INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('8854715', 'Sunt enim asperiores est velit est.', 'gold', '100.00', '1197817', '208789');
-INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('9622139', 'Laudantium quod voluptatem reprehenderit.', 'diamond', '400.00', '1138530', '134404');
+INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('5468822', 'Esse aut est aperiam quia consequuntur.', 'diamond', '300.00', '3343944', '20870');
+INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('8854715', 'Sunt enim asperiores est velit est.', 'gold', '100.00', '3343944', '208789');
+INSERT INTO `Ticket` (`ticket_id`, `description`, `tier`, `tier_price`, `issued_by`, `bought_by`) VALUES ('9622139', 'Laudantium quod voluptatem reprehenderit.', 'diamond', '400.00', '3343944', '134404');
 
 
 
@@ -139,9 +139,9 @@ INSERT INTO `Ticket_Issuer` (`emp_id`) VALUES ('145731');
 
 
 INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('1', 'suv', '1590047', '204.07', 'quam', '1590047');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('11', 'jeep', '3475379', '286.01', 'ipsam', '3475379');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('3', 'jeep', '3475379', '286.01', 'ipsam', '3475379');
 INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('12', 'jeep', '3781558', '264.78', 'omnis', '3781558');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('14', 'jeep', '4626084', '249.27', 'nisi', '4626084');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('9', 'jeep', '4626084', '249.27', 'nisi', '4626084');
 
 
 
