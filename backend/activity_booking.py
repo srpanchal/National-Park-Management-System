@@ -1,6 +1,6 @@
 import config
 from flask import Flask, make_response, jsonify, Blueprint
-from db import mysql
+from server import mysql
 
 routes = Blueprint('routes', __name__)
 
