@@ -8,7 +8,7 @@ create table Employee (
 	salary		numeric(6),
 	emp_name	varchar(50),
 	role		varchar(20),
-	emp_dept	varchar(20) not null,
+	emp_dept	varchar(20),
 	age			numeric(2),
 	gender		varchar(10),
 	primary key (emp_id)
