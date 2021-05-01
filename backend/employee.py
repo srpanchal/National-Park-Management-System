@@ -2,7 +2,6 @@ import simplejson as json
 import config
 from flask import Flask, make_response, jsonify, Blueprint,request
 from flask_mysql_connector import MySQL
-import requests
 
 mysql = MySQL()
 
