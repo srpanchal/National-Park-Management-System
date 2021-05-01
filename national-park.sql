@@ -59,8 +59,10 @@ create table Activity_Booking (
 	tourist_id		varchar(10),
 	actv_id			varchar(10),
 	booking_date	datetime,
-	foreign key (tourist_id) references Tourist(tourist_id) on delete set null on update cascade,
-	foreign key (actv_id) references Activity(actv_id) on delete set null on update cascade
+	status 			varchar(20) default 'ACTIVE' check (status in ('ACTIVE', 'CANCELLED')),
+	primary key (tourist_id, actv_id, booking_date),
+	foreign key (tourist_id) references Tourist(tourist_id) on delete cascade on update cascade,
+	foreign key (actv_id) references Activity(actv_id) on delete cascade on update cascade
 	);
 
 create table Camping (
