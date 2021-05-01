@@ -1,4 +1,4 @@
-from flask import Flask, make_response, jsonify, Blueprint, request
+from flask import make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 
 

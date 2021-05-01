@@ -118,7 +118,6 @@ INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age
 INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`) VALUES ('9841432', '163155', 'Arvel Ankunding III', ' Accounts clerk', 'hospitality', '96', 'male');
 INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`) VALUES ('9912644', '207260', 'Francisca Osinski', ' Forest officer', 'account', '81', 'male');
 INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`) VALUES ('9918553', '368943', 'Amir O\'Keefe', 'Ticket issuer', 'finance', '95', 'female');
-INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`) VALUES  ('108',6000,'Curt Gibson','Tour guide',NULL,61,'male');
 INSERT INTO `Employee` VALUES ('108',6000,'Curt Gibson','Tour guide',NULL,61,'male'),
 ('114',5612,'Miss Earnestine Cormier PhD','Accounts clerk',NULL,32,'male'),
 ('127',2943,'Cassie Cummings','Account Clerk',NULL,30,'male'),
@@ -353,39 +352,31 @@ VALUES
 ('505',23),('140',24),('140',25),('140',26),('140',27),
 ('140',28),('140',29),('140',30),('140',31),('140',32);
 
-Insert into Accounts_CLerk(emp_id) values('114'),('127'),('145'),('174'),('208'),('266'),('27'),('375'),('450'),('474'),('486'),('733'),('90'),('9');
+Insert into Accounts_Clerk(emp_id) values('114'),('127'),('145'),('174'),('208'),('266'),('27'),('375'),('450'),('474'),('486'),('733'),('90'),('9');
 
 
 Insert into Account values
-('1',	'Debit',	'Repair',	5000,	'Building repair for veterinary doctor')
-('2',	'Debit',	'Repair',	2000,	'Fencing repair')
-('3',	'Debit',	'Salary',	9000000,	'For year 2018')
-('4',	'Debit',	'Salary',	9000000,	'For year 2017')
-('5',	'Debit',	'Repair',	800,	'Vehicles servicing')
-('6',	'Debit',	'Salary',	9000000,	'For year 2019')
-('7',	'Debit',	'Construction',	10000,	'Constructing office building')
-('8',	'Debit',	'Logistics',	20000,	'Misc')
-('9',	'Debit',	'Logistics',	2453,	'Misc')
-('10',	'Debit',	'Logistics',	1234,	'Misc')
+('1',	'Debit',	'Repair',	5000,	'Building repair for veterinary doctor'),
+('2',	'Debit',	'Repair',	2000,	'Fencing repair'),
+('3',	'Debit',	'Salary',	9000000,	'For year 2018'),
+('4',	'Debit',	'Salary',	9000000,	'For year 2017'),
+('5',	'Debit',	'Repair',	800,	'Vehicles servicing'),
+('6',	'Debit',	'Salary',	9000000,	'For year 2019'),
+('7',	'Debit',	'Construction',	10000,	'Constructing office building'),
+('8',	'Debit',	'Logistics',	20000,	'Misc'),
+('9',	'Debit',	'Logistics',	2453,	'Misc'),
+('10',	'Debit',	'Logistics',	1234,	'Misc'),
 ('11',	'Credit',	'Donation',	50000,	'Government Donation');
 
 
-Insert into Manage_Account values
-('1','14'),
+Insert into Manage_Account(transaction_id, emp_id) values
+('1','114'),
 ('2','127'),
-('3','145'),
-('4','174'),
-('5','208'),
-('6','266'),
-('7','14'),
-('8','127'),
-('9','127),
-('10','174'),
-('11','14');
+('3','9');
 
-Insert into Forest_Officer(emp_id) values (select emp_id from employees where role ='Forest officer');
+Insert into Forest_Officer(emp_id) (select emp_id from Employee where role ='Forest officer');
 
-Insert into species values
+Insert into Species values
 ('1',	'Pronghorn',	23	,'Antilocapridae',	'M',	'Mammal'),
 ('2',	'Bighorn Sheep',	42	,'Bovidae',	'M',	'Mammal'),
 ('3',	'Elk',	11	,'Cervidae',	'M',	'Mammal'),
@@ -446,15 +437,8 @@ INSERT INTO `Veterinary_Doc_Office_Hours` VALUES ('140','11AM-3PM'),('173','10PM
 
 
 INSERT INTO `Species_Doctor` VALUES
-('140','39'),('140','7'),('142','1'),
-('142','33'),
-('143','2'),('143','6'),
-('145','15'),('146','18'),('148','13'),('149','34'),('149','4'),
-('150','20'),('150','36'),('151','13'),('151','36'),('151','37'),
-('151','38'),('153','1'),('153','24'),('154','10'),('154','17'),('154','27'),
-('154','5'),('157','11'),('158','14'),('158','26'),('159','17'),('159','20'),
-('159','29'),('159','32'),('159','8'),('160','37'),('160','8'),('162','31'),
-('162','34'),('163','20'),('163','38'),('164','12'),('164','36'),('165','12'),
-('165','33'),('165','34'),('166','24'),('166','27'),('166','29'),('166','4'),
-('168','22'),('169','32'),('170','23'),('171','27'),('171','28'),('171','8'),
-('172','15'),('172','20'),('172','21'),('172','23'),('172','39');
+('140','39'),('140','7'),('173','1'),
+('173','33'),
+('245','2'),('245','6'),
+('245','15'),
+('887','20'),('887','36');
