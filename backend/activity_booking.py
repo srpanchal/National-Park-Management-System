@@ -1,4 +1,4 @@
-from flask import Flask, make_response, jsonify, Blueprint, request
+from flask import make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 
 
@@ -11,7 +11,9 @@ insert_into_activity_booking = "INSERT INTO `Activity_Booking` (`tourist_id`, `a
 cancel_activity_booking = "UPDATE Activity_Booking SET status = 'CANCELLED' " \
                           "WHERE tourist_id = %s AND actv_id = %s AND booking_date = %s;"
 get_activity_booking_by_id = "SELECT * FROM Activity_Booking " \
-                             "WHERE tourist_id = %s AND actv_id = %s AND booking_date = %s;"
+                             "WHERE tourist_id = %s ;"
+update_activity_booking = "UPDATE Activity_Booking SET actv_id = %s, booking_date = %s " \
+                          "WHERE tourist_id = %s AND actv_id = %s AND booking_date = %s;"
 
 
 @act_api.route('/booking', methods=['GET', 'POST', 'DELETE', 'PUT'])
@@ -19,12 +21,14 @@ def getBookings():
     if request.method == 'POST':
         return insertIntoActivityBooking(request.json)
     elif request.method == 'GET':
-        if 'tourist_id' in request.args and 'actv_id' in request.args and 'booking_date' in request.args:
-            return getActivityBookingById(request.args)
+        if 'tourist_id' in request.args:
+            return getActivityBookingByTouristId(request.args)
         else:
             return getAllActivityBookings()
     elif request.method == 'DELETE':
         return deleteActivityBooking(request.json)
+    elif request.method == 'PUT':
+        return updateActivityBooking(request.json)
 
 
 def insertIntoActivityBooking(form):
@@ -42,12 +46,11 @@ def insertIntoActivityBooking(form):
     return make_response("False", 500)
 
 
-def getActivityBookingById(args):
+def getActivityBookingByTouristId(args):
     try:
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
-        cursor.execute(get_activity_booking_by_id,
-                       (request.args.get('tourist_id'), request.args.get('actv_id'), request.args.get('booking_date')))
+        cursor.execute(get_activity_booking_by_id, (args.get('tourist_id'),))
         rows = cursor.fetchall()
         return make_response(jsonify(rows), 200)
     except Exception as e:
@@ -76,6 +79,21 @@ def deleteActivityBooking(form):
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
         cursor.execute(cancel_activity_booking, (form['tourist_id'], form['actv_id'], form['booking_date']))
+        conn.commit()
+        return make_response("True", 200)
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+    return make_response("False", 500)
+
+
+def updateActivityBooking(form):
+    try:
+        conn = mysql.connection
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(update_activity_booking, (form['new_actv_id'], form['new_booking_date'], form['tourist_id'], form['actv_id'], form['booking_date']))
         conn.commit()
         return make_response("True", 200)
     except Exception as e:
