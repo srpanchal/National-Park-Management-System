@@ -49,7 +49,7 @@ def employees():
     if request.method == 'DELETE':
         try:
             delete_employee = """DELETE FROM Employee where emp_id = %s"""
-            data = request.args.get('emp_id')
+            data = (request.args.get('emp_id'),)
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_employee,data)
