@@ -2,6 +2,7 @@ from flask_mysql_connector import MySQL
 from flask import Flask
 import config
 from activity_booking import act_api
+from activity import act_api
 from employee import emp_api
 from department_manager import dept_m_api
 from inventory import inv_api
@@ -13,6 +14,7 @@ from department import dept_api
 
 
 app = Flask(__name__)
+app.register_blueprint(act_api)
 app.register_blueprint(act_api)
 app.register_blueprint(emp_api)
 app.register_blueprint(dept_m_api)
