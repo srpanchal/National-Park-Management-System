@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import CreateAccount from './Components/CreateAccount';
+import EmployeeHome from './Components/EmployeeHome';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/create-account">
             <CreateAccount />
+          </Route>
+          <Route path="/employee-home">
+            <EmployeeHome />
           </Route>
         </Switch>
       </BrowserRouter>
