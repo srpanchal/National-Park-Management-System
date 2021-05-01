@@ -2,10 +2,12 @@ from flask_mysql_connector import MySQL
 from flask import Flask
 import config
 from activity_booking import act_api
+from activity import act_api
 from employee import emp_api
 
 
 app = Flask(__name__)
+app.register_blueprint(act_api)
 app.register_blueprint(act_api)
 app.register_blueprint(emp_api)
 
