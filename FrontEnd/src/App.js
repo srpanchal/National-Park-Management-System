@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
 import Home from './Components/Home';
+import CreateAccount from './Components/CreateAccount';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/create-account">
+            <CreateAccount />
           </Route>
         </Switch>
       </BrowserRouter>
