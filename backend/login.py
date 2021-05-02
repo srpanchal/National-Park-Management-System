@@ -63,7 +63,7 @@ def login():
             return make_response("Login Failed", 401)
         cursor.close()
         conn.close()
-        return make_response("True", 200)
+        return make_response(jsonify(row), 200)
     except Exception as e:
         print(e)
     return make_response("False", 500)

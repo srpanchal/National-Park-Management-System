@@ -1,7 +1,6 @@
 from flask import make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 
-
 act_book_api = Blueprint('act_book_api', __name__)
 mysql = MySQL()
 
@@ -10,8 +9,15 @@ insert_into_activity_booking = "INSERT INTO `Activity_Booking` (`tourist_id`, `a
                                "VALUES (%s, %s, %s);"
 cancel_activity_booking = "UPDATE Activity_Booking SET status = 'CANCELLED' " \
                           "WHERE tourist_id = %s AND actv_id = %s AND booking_date = %s;"
-get_activity_booking_by_id = "SELECT * FROM Activity_Booking " \
-                             "WHERE tourist_id = %s ;"
+get_activity_booking_by_id = """
+                            SELECT * 
+                            FROM Activity_Booking 
+                            JOIN Activity ON Activity_Booking.actv_id = Activity.actv_id 
+                            LEFT JOIN Hiking ON Activity_Booking.actv_id = Hiking.actv_id 
+                            LEFT JOIN Camping ON Activity_Booking.actv_id = Camping.actv_id
+                            LEFT JOIN Tour ON Activity_Booking.actv_id = Tour.actv_id
+                            WHERE tourist_id = %s
+                            ORDER BY booking_date ASC;"""
 update_activity_booking = "UPDATE Activity_Booking SET actv_id = %s, booking_date = %s " \
                           "WHERE tourist_id = %s AND actv_id = %s AND booking_date = %s;"
 
@@ -53,9 +59,21 @@ def getActivityBookingByTouristId(args):
         rows = cursor.fetchall()
         cursor.close()
         conn.close()
-        return make_response(jsonify(rows), 200)
+        new_rows = []
+        for row in rows:
+            row = cleanNullTerms(row)
+            new_rows.append(row)
+        return make_response(jsonify(new_rows), 200)
     except Exception as e:
         print(e)
+
+
+def cleanNullTerms(d):
+    return {
+        k: v
+        for k, v in d.items()
+        if v is not None
+    }
 
 
 def getAllActivityBookings():
@@ -69,6 +87,7 @@ def getAllActivityBookings():
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
+
 
 def deleteActivityBooking(form):
     try:
@@ -88,7 +107,8 @@ def updateActivityBooking(form):
     try:
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
-        cursor.execute(update_activity_booking, (form['new_actv_id'], form['new_booking_date'], form['tourist_id'], form['actv_id'], form['booking_date']))
+        cursor.execute(update_activity_booking, (
+        form['new_actv_id'], form['new_booking_date'], form['tourist_id'], form['actv_id'], form['booking_date']))
         conn.commit()
         cursor.close()
         conn.close()
