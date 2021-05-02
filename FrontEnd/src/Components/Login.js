@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { API_URL } from '../Utils/constants';
+import { API_URL, USER_ROLES } from '../Utils/constants';
+import { storeUser } from '../Utils/helper';
 
 export default function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validated, setValidated] = useState(false);
@@ -18,7 +20,14 @@ export default function Login() {
     })
       .then(res => res.json())
       .then(json => {
-        console.log('----LOGIN----', json);
+        delete json.password;
+        storeUser(json);
+        
+        if (history.role === USER_ROLES.toursit) {
+          history.replace('/');
+        } else {
+          history.replace('/employee-home');
+        }
       });
   }
 

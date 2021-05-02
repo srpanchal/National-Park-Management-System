@@ -1,7 +1,25 @@
+import { USER_ROLES } from './constants';
+
 export const storeUser = (data) => {
   localStorage.setItem("user", JSON.stringify(data));
 }
 
 export const getUser = () => {
   return JSON.parse(localStorage.getItem("user"));
+}
+
+export const removeUser = () => {
+  localStorage.removeItem("user");
+}
+
+export const isEmployee = () => {
+  const user = getUser();
+
+  return user && user.role === USER_ROLES.employee;
+}
+
+export const isAdmin = () => {
+  const user = getUser();
+
+  return user && user.role === USER_ROLES.admin;
 }

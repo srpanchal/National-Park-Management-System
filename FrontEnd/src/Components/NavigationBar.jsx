@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar} from "react-bootstrap";
 import { Nav} from "react-bootstrap";
-import {NavDropdown} from "react-bootstrap";
+import { getUser } from '../Utils/helper';
 
 
 class NavigationBar extends React.Component {
   render() {
+    const user = getUser();
+
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home">National Park</Navbar.Brand>
@@ -17,8 +19,8 @@ class NavigationBar extends React.Component {
           <Nav><span style={{paddingRight: '10px'}}><Link to="/about">About</Link></span></Nav>
           <Nav>
             <span style={{paddingRight: '10px'}}>
-          <Link to="/login">Login</Link>
-          </span>
+              <Link to={user ? '/sign-out' : '/login'}>{user ? 'Sign Out' : 'Login/Create Account'}</Link>
+            </span>
           </Nav>
         </Nav>
       </Navbar.Collapse>

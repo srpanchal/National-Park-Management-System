@@ -2,6 +2,7 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './Components/Login';
+import SignOut from './Components/SignOut';
 import Home from './Components/Home';
 import CreateAccount from './Components/CreateAccount';
 import EmployeeHome from './Components/EmployeeHome';
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/sign-out">
+            <SignOut />
           </Route>
           <Route path="/create-account">
             <CreateAccount />
