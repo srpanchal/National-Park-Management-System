@@ -1,7 +1,7 @@
 import simplejson as json
 from flask import Flask, make_response, jsonify, Blueprint,request
 from flask_mysql_connector import MySQL
-
+import random
 mysql = MySQL()
 
 emp_api = Blueprint('emp_api', __name__)
@@ -35,7 +35,7 @@ def employees():
             body = request.json
             post_employee = """INSERT INTO employee (emp_id,salary,emp_name, role,emp_dept,age, gender)
             VALUES ( %s, %s, %s, %s, %s, %s, %s )"""
-            data =(body['emp_id'], body['salary'], body['emp_name'],body['role'], body['emp_dept'], body['age'],  body['gender'])
+            data =(random.randint(100, 999999), body['salary'], body['emp_name'],body['role'], body['emp_dept'], body['age'],  body['gender'])
             print(post_employee,data)
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
