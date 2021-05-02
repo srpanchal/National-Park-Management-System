@@ -1,6 +1,7 @@
 import React from "react";
 import NavigationBar from "../Components/NavigationBar";
-import {Table} from "react-bootstrap";
+import {Table, Button} from "react-bootstrap";
+import {APIConstants} from '../Util/APIConstants';
 
 class campingBooking extends React.Component {
 
@@ -10,12 +11,14 @@ class campingBooking extends React.Component {
         this.state = {
             camping: [
             ],
-            selectedCamping: ''
+            selectedCamping: '',
+            selectedDate: '',
+            tourist_id: 124474 
         };
     }
 
     componentDidMount() {
-        fetch('http://50.18.241.42/activity?camping=true')
+        fetch(APIConstants.getCampingDetails)
         .then(res => res.json())
         .then(res => {
             console.log(res);
@@ -24,25 +27,62 @@ class campingBooking extends React.Component {
             })
         });
 
-      const  camping = [
-            {
-                actv_id: 14,
-                cost: 485,
-                site: 'rem'
-            }
-        ];
-
-        // this.setState({
-        //     camping : camping
-        // });
     }
 
     HandleSelection = (e) => {
         console.log(e.target.value);
         this.setState({
-            actv_id: e.target.value
+            selectedCamping: e.target.value
         });
     }
+
+    handleSelectedDate = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            selectedDate: e.target.value
+
+        })
+    }
+
+    handleSubmit =  async () => {
+        console.log(this.state);
+        if (this.state.selectedDate === '' || this.state.selectedCamping === '') {
+            alert('Please select date and hike');
+        }
+        else {
+
+            const input = JSON.stringify({
+                actv_id : this.state.selectedCamping,
+                booking_date: this.state.selectedDate,
+                tourist_id: this.state.tourist_id
+
+            });
+
+            const requestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: input
+            };
+
+            fetch(APIConstants.bookActivity, requestOptions)
+            .then(response => {
+                console.log(response);
+
+            if(response){
+                alert('Ticket Booked');
+            }
+            else {
+                alert('failed ! try again');
+            }
+            });
+            
+
+
+
+        }
+
+    }
+
 
 
 
@@ -75,6 +115,16 @@ class campingBooking extends React.Component {
                        
                     </tbody>
                 </Table>
+
+                <div>
+
+                    <label> Select Date</label>
+                    <input type="date" name="date" onChange={this.handleSelectedDate} />
+                </div>
+
+                <div>
+                    <Button onClick={this.handleSubmit} > Submit </Button> 
+                </div>
                 
             </div>
             
