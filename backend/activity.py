@@ -24,13 +24,11 @@ def getCamping():
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_camping)
         rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
-
 
 def getHiking():
     get_all_hiking = "SELECT * FROM Hiking"
@@ -39,12 +37,11 @@ def getHiking():
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_hiking)
         rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
 
 
 def getTour():
@@ -54,12 +51,12 @@ def getTour():
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_tour)
         rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
+
 
 def getActivity():
     get_all_camping = "SELECT * FROM Camping"
@@ -74,9 +71,8 @@ def getActivity():
         rows += cursor.fetchall()
         cursor.execute(get_all_camping)
         rows += cursor.fetchall()
+        cursor.close()
+        conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()

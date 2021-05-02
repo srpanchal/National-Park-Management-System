@@ -235,3 +235,15 @@ create table Species_Doctor (
 	foreign key (emp_id) references Veterinary_Doctor(emp_id) on delete cascade on update cascade,
 	foreign key (species_id) references Species(species_id) on delete cascade on update cascade
 );
+
+
+create table User (
+  id  int auto_increment,
+  role  varchar(20) check (role in ('Tourist', 'Admin')),
+  email varchar(50) not null,
+  password varchar(300) not null,
+  fullname varchar(100) not null,
+  phone varchar(10),
+  address varchar(100),
+  primary key (id)
+);
