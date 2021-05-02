@@ -1,26 +1,27 @@
 import simplejson as json
-from flask import Flask, make_response, jsonify, Blueprint,request
+import config
+from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 
 mysql = MySQL()
 
-emp_api = Blueprint('emp_api', __name__)
+inv_api = Blueprint('inv_api', __name__)
 
 
-@emp_api.route('/employees', methods = ['GET', 'POST', 'DELETE','PUT'])
-def employees():
+@inv_api.route('/inventory', methods=['GET', 'POST', 'DELETE', 'PUT'])
+def inventory():
     if request.method == 'GET':
         try:
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            if 'emp_id' in request.args:
-                get_emp = """SELECT * FROM Employee  \
-                          WHERE emp_id = %s"""
-                cursor.execute(get_emp,(request.args.get('emp_id'),))
+            if 'inv_id' in request.args:
+                get_inv = """SELECT * FROM Inventory  \
+                          WHERE inv_id = %s"""
+                cursor.execute(get_inv, (request.args.get('inv_id'),))
                 rows = cursor.fetchone()
             else:
-                get_emp = "SELECT * FROM Employee"
-                cursor.execute(get_emp)
+                get_inv = "SELECT * FROM Inventory"
+                cursor.execute(get_inv)
                 rows = cursor.fetchall()
 
             return make_response(json.dumps(rows), 200)
@@ -30,16 +31,16 @@ def employees():
         finally:
             cursor.close()
             conn.close()
+
     if request.method == 'POST':
         try:
             body = request.json
-            post_employee = """INSERT INTO employee (emp_id,salary,emp_name, role,emp_dept,age, gender)
-            VALUES ( %s, %s, %s, %s, %s, %s, %s )"""
-            data =(body['emp_id'], body['salary'], body['emp_name'],body['role'], body['emp_dept'], body['age'],  body['gender'])
-            print(post_employee,data)
+            post_inventory = """INSERT INTO Inventory (inv_id,name,category,quantity,cost_per_item)
+            VALUES ( %s, %s, %s, %s, %s )"""
+            data = (body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            cursor.execute(post_employee,data)
+            cursor.execute(post_inventory, data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -48,14 +49,13 @@ def employees():
         finally:
             cursor.close()
             conn.close()
-
     if request.method == 'DELETE':
         try:
-            delete_employee = """DELETE FROM Employee where emp_id = %s"""
-            data = (request.args.get('emp_id'),)
+            delete_inventory = """DELETE FROM Inventory where inv_id = %s"""
+            data = (request.args.get('inv_id'),)
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            cursor.execute(delete_employee,data)
+            cursor.execute(delete_inventory, data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -67,13 +67,12 @@ def employees():
     if request.method == 'PUT':
         try:
             body = request.json
-            update_employee = """UPDATE employee set emp_id = %s,salary = %s,emp_name= %s, role= %s,emp_dept= %s,
-            age = %s, gender = %s WHERE emp_id = %s"""
-            data = (body['emp_id'], body['salary'], body['emp_name'], body['role'], body['emp_dept'], body['age'],
-                    body['gender'],body['emp_id'])
+            update_inventory = """UPDATE Inventory set inv_id = %s,name = %s,category= %s, quantity= %s,cost_per_item= %s
+            WHERE inv_id = %s"""
+            data = (body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'],body['inv_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            cursor.execute(update_employee,data)
+            cursor.execute(update_inventory, data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:

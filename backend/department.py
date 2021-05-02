@@ -1,26 +1,27 @@
 import simplejson as json
+import config
 from flask import Flask, make_response, jsonify, Blueprint,request
 from flask_mysql_connector import MySQL
 
 mysql = MySQL()
 
-emp_api = Blueprint('emp_api', __name__)
+dept_api = Blueprint('dept_api', __name__)
 
 
-@emp_api.route('/employees', methods = ['GET', 'POST', 'DELETE','PUT'])
-def employees():
+@dept_api.route('/department', methods = ['GET', 'POST', 'DELETE','PUT'])
+def department():
     if request.method == 'GET':
         try:
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            if 'emp_id' in request.args:
-                get_emp = """SELECT * FROM Employee  \
-                          WHERE emp_id = %s"""
-                cursor.execute(get_emp,(request.args.get('emp_id'),))
+            if 'dept_id' in request.args:
+                get_dept = """SELECT * FROM Department  \
+                          WHERE dept_id = %s"""
+                cursor.execute(get_dept,(request.args.get('dept_id'),))
                 rows = cursor.fetchone()
             else:
-                get_emp = "SELECT * FROM Employee"
-                cursor.execute(get_emp)
+                get_dept = "SELECT * FROM Department"
+                cursor.execute(get_dept)
                 rows = cursor.fetchall()
 
             return make_response(json.dumps(rows), 200)
@@ -33,13 +34,12 @@ def employees():
     if request.method == 'POST':
         try:
             body = request.json
-            post_employee = """INSERT INTO employee (emp_id,salary,emp_name, role,emp_dept,age, gender)
-            VALUES ( %s, %s, %s, %s, %s, %s, %s )"""
-            data =(body['emp_id'], body['salary'], body['emp_name'],body['role'], body['emp_dept'], body['age'],  body['gender'])
-            print(post_employee,data)
+            post_dept = """INSERT INTO Department (dept_id,dept_name,dept_mgr)
+            VALUES ( %s, %s, %s)"""
+            data =(body['dept_id'], body['dept_name'], body['dept_mgr'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            cursor.execute(post_employee,data)
+            cursor.execute(post_dept,data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -48,14 +48,13 @@ def employees():
         finally:
             cursor.close()
             conn.close()
-
     if request.method == 'DELETE':
         try:
-            delete_employee = """DELETE FROM Employee where emp_id = %s"""
-            data = (request.args.get('emp_id'),)
+            delete_dept = """DELETE FROM Department where dept_id = %s"""
+            data = (request.args.get('dept_id'),)
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            cursor.execute(delete_employee,data)
+            cursor.execute(delete_dept,data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -67,13 +66,11 @@ def employees():
     if request.method == 'PUT':
         try:
             body = request.json
-            update_employee = """UPDATE employee set emp_id = %s,salary = %s,emp_name= %s, role= %s,emp_dept= %s,
-            age = %s, gender = %s WHERE emp_id = %s"""
-            data = (body['emp_id'], body['salary'], body['emp_name'], body['role'], body['emp_dept'], body['age'],
-                    body['gender'],body['emp_id'])
+            update_dept = """UPDATE Department set dept_id = %s,dept_name = %s,dept_mgr= %s WHERE dept_id = %s"""
+            data = (body['dept_id'], body['dept_name'], body['dept_mgr'], body['dept_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
-            cursor.execute(update_employee,data)
+            cursor.execute(update_dept,data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
