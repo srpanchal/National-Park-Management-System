@@ -1,6 +1,7 @@
 import React from "react";
 import NavigationBar from "./NavigationBar";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
+import {APIConstants} from '../Util/APIConstants';
 
 class TourBooking extends React.Component {
 
@@ -10,19 +11,21 @@ class TourBooking extends React.Component {
         this.state = {
             tours: [
             ],
-            selectedTour: ''
+            selectedTour: '',
+            selectedDate: '',
+            tourist_id: 124474
         };
     }
 
     componentDidMount() {
-        fetch('http://50.18.241.42/activity?tour=true')
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
-            this.setState({
-                tours: res
-            })
-        });
+        fetch(APIConstants.getTours)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    tours: res
+                })
+            });
 
     }
 
@@ -33,14 +36,62 @@ class TourBooking extends React.Component {
         })
     }
 
+    handleSelectedDate = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            selectedDate: e.target.value
+
+        })
+    }
+
+    handleSubmit = async () => {
+        console.log(this.state);
+        if (this.state.selectedDate === '' || this.state.selectedCamping === '') {
+            alert('Please select date and hike');
+        }
+        else {
+
+            const input = JSON.stringify({
+                actv_id: this.state.selectedTour,
+                booking_date: this.state.selectedDate,
+                tourist_id: this.state.tourist_id
+
+            });
+
+            const requestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: input
+            };
+
+            fetch(APIConstants.bookActivity, requestOptions)
+                .then(response => {
+                    console.log(response);
+
+                    if (response) {
+                        alert('Ticket Booked');
+                    }
+                    else {
+                        alert('failed ! try again');
+                    }
+                });
+
+
+
+
+        }
+
+    }
+
+
 
     render() {
         return (
             <div>
-                <NavigationBar/>
-                   <h3> Tour Booking</h3>
+                <NavigationBar />
+                <h3> Tour Booking</h3>
 
-                   <Table striped bordered hover>
+                <Table striped bordered hover>
                     <thead>
                         <tr>
                             <th>Route</th>
@@ -50,24 +101,34 @@ class TourBooking extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                         { 
-                         this.state.tours.length > 0 && this.state.tours.map(t => (
-                              <tr key ={t.actv_id}>
-                              <td>{t.route}</td>
-                              <td>{t.vehicle}</td>
-                              <td>{t.cost}</td>
-                              <td> <input type = "radio"  name= "tour" value = {t.actv_id} onChange={this.HandleSelection}/> </td>         
-                               </tr>
-                         )) }
-                         
-                       
+                        {
+                            this.state.tours.length > 0 && this.state.tours.map(t => (
+                                <tr key={t.actv_id}>
+                                    <td>{t.route}</td>
+                                    <td>{t.vehicle}</td>
+                                    <td>{t.cost}</td>
+                                    <td> <input type="radio" name="tour" value={t.actv_id} onChange={this.HandleSelection} /> </td>
+                                </tr>
+                            ))}
+
+
                     </tbody>
                 </Table>
 
+                <div>
+
+                    <label> Select Date</label>
+                    <input type="date" name="date" onChange={this.handleSelectedDate} />
+                </div>
+
+                <div>
+                    <Button onClick={this.handleSubmit} > Submit </Button>
+                </div>
+
             </div>
-         
-            
-            
+
+
+
         );
     }
 }

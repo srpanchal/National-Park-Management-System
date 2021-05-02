@@ -1,7 +1,9 @@
 import React from "react";
 import NavigationBar from "./NavigationBar";
-import {Table} from "react-bootstrap";
-import {Row, Col} from "react-bootstrap";
+import { Table } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { APIConstants } from "../Util/APIConstants";
 
 
 class HikingBooking extends React.Component {
@@ -13,19 +15,22 @@ class HikingBooking extends React.Component {
         this.state = {
             hikings: [
             ],
-            selectedHike: ''
+            selectedHike: '',
+            selectedDate: '',
+            tourist_id: 124474 
+
         };
     }
 
     componentDidMount() {
-        fetch('http://50.18.241.42/activity?hiking=true')
-        .then(res => res.json())
-        .then(res => {
-            console.log(res);
-            this.setState({
-                hikings: res
-            })
-        });
+        fetch(APIConstants.getHikes)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    hikings: res
+                })
+            });
 
     }
 
@@ -36,15 +41,62 @@ class HikingBooking extends React.Component {
         })
     }
 
-    
+    handleSelectedDate = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            selectedDate: e.target.value
+
+        })
+    }
+
+    handleSubmit =  async () => {
+        if (this.state.selectedDate == '' || this.state.selectedHike == '') {
+            alert('Please select date and hike');
+        }
+        else {
+
+            const input = JSON.stringify({
+                actv_id : this.state.selectedHike,
+                booking_date: this.state.selectedDate,
+                tourist_id: this.state.tourist_id
+
+            });
+
+            const requestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: input
+            };
+
+            fetch(APIConstants.bookActivity, requestOptions)
+            .then(response => {
+                console.log(response);
+
+            if(response){
+                alert('Ticket Booked');
+            }
+            else {
+                alert('failed ! try again');
+            }
+
+            });
+            
+
+
+
+        }
+
+    }
+
+
 
 
     render() {
         return (
-            <div> <NavigationBar/>
-            <h3> Hiking Booking</h3>
+            <div> <NavigationBar />
+                <h3> Hiking Booking</h3>
 
-            <Table striped bordered hover>
+                <Table striped bordered hover>
                     <thead>
                         <tr>
                             <th>Trail</th>
@@ -55,33 +107,37 @@ class HikingBooking extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                         { 
-                         this.state.hikings.length > 0 && this.state.hikings.map(h => (
-                              <tr key ={h.actv_id}>
-                              <td>{h.trail}</td>
-                              <td>{h.elevation}</td>
-                              <td>{h.duration}</td>
-                              <td>{h.difficulty_level}</td>
-                              <td> <input type = "radio"  name= "hiking" value = {h.actv_id} onChange={this.HandleSelection}/> </td>         
-                               </tr>
-                         )) }
-                         
-                       
+                        {
+                            this.state.hikings.length > 0 && this.state.hikings.map(h => (
+                                <tr key={h.actv_id}>
+                                    <td>{h.trail}</td>
+                                    <td>{h.elevation}</td>
+                                    <td>{h.duration}</td>
+                                    <td>{h.difficulty_level}</td>
+                                    <td> <input type="radio" name="hiking" value={h.actv_id} onChange={this.HandleSelection} /> </td>
+                                </tr>
+                            ))}
+
+
                     </tbody>
                 </Table>
 
                 <div>
-                   
+
                     <label> Select Date</label>
-                   <input type = "date" name= "date" onChange= {this.handleSelectedDate} />        
+                    <input type="date" name="date" onChange={this.handleSelectedDate} />
+                </div>
+
+                <div>
+                    <Button onClick={this.handleSubmit} > Submit </Button> 
                 </div>
 
 
 
-                </div>
-           
-            
-            
+            </div>
+
+
+
         );
     }
 }
