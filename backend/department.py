@@ -2,6 +2,7 @@ import simplejson as json
 import config
 from flask import Flask, make_response, jsonify, Blueprint,request
 from flask_mysql_connector import MySQL
+import random
 
 mysql = MySQL()
 
@@ -36,7 +37,7 @@ def department():
             body = request.json
             post_dept = """INSERT INTO Department (dept_id,dept_name,dept_mgr)
             VALUES ( %s, %s, %s)"""
-            data =(body['dept_id'], body['dept_name'], body['dept_mgr'])
+            data =(random.randint(100, 999999), body['dept_name'], body['dept_mgr'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_dept,data)

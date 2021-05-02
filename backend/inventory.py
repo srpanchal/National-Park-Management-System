@@ -2,6 +2,7 @@ import simplejson as json
 import config
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
+import random
 
 mysql = MySQL()
 
@@ -37,7 +38,7 @@ def inventory():
             body = request.json
             post_inventory = """INSERT INTO Inventory (inv_id,name,category,quantity,cost_per_item)
             VALUES ( %s, %s, %s, %s, %s )"""
-            data = (body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'])
+            data = (random.randint(100, 999999), body['name'], body['category'], body['quantity'], body['cost_per_item'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_inventory, data)
@@ -69,7 +70,8 @@ def inventory():
             body = request.json
             update_inventory = """UPDATE Inventory set inv_id = %s,name = %s,category= %s, quantity= %s,cost_per_item= %s
             WHERE inv_id = %s"""
-            data = (body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'],body['inv_id'])
+            data = (
+            body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'], body['inv_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_inventory, data)
