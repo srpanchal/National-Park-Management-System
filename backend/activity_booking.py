@@ -2,7 +2,7 @@ from flask import make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 
 
-act_api = Blueprint('act_api', __name__)
+act_book_api = Blueprint('act_book_api', __name__)
 mysql = MySQL()
 
 get_all_activity_bookings = "SELECT * FROM Activity_Booking"
@@ -16,7 +16,7 @@ update_activity_booking = "UPDATE Activity_Booking SET actv_id = %s, booking_dat
                           "WHERE tourist_id = %s AND actv_id = %s AND booking_date = %s;"
 
 
-@act_api.route('/booking', methods=['GET', 'POST', 'DELETE', 'PUT'])
+@act_book_api.route('/booking', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def getBookings():
     if request.method == 'POST':
         return insertIntoActivityBooking(request.json)
@@ -37,12 +37,11 @@ def insertIntoActivityBooking(form):
         cursor = conn.cursor(dictionary=True)
         cursor.execute(insert_into_activity_booking, (form['tourist_id'], form['actv_id'], form['booking_date']))
         conn.commit()
+        cursor.close()
+        conn.close()
         return make_response("True", 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
     return make_response("False", 500)
 
 
@@ -52,12 +51,11 @@ def getActivityBookingByTouristId(args):
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_activity_booking_by_id, (args.get('tourist_id'),))
         rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
 
 
 def getAllActivityBookings():
@@ -66,13 +64,11 @@ def getAllActivityBookings():
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_activity_bookings)
         rows = cursor.fetchall()
+        cursor.close()
+        conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
-
 
 def deleteActivityBooking(form):
     try:
@@ -80,12 +76,11 @@ def deleteActivityBooking(form):
         cursor = conn.cursor(dictionary=True)
         cursor.execute(cancel_activity_booking, (form['tourist_id'], form['actv_id'], form['booking_date']))
         conn.commit()
+        cursor.close()
+        conn.close()
         return make_response("True", 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
     return make_response("False", 500)
 
 
@@ -95,10 +90,9 @@ def updateActivityBooking(form):
         cursor = conn.cursor(dictionary=True)
         cursor.execute(update_activity_booking, (form['new_actv_id'], form['new_booking_date'], form['tourist_id'], form['actv_id'], form['booking_date']))
         conn.commit()
+        cursor.close()
+        conn.close()
         return make_response("True", 200)
     except Exception as e:
         print(e)
-    finally:
-        cursor.close()
-        conn.close()
     return make_response("False", 500)

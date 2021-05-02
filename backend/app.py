@@ -1,17 +1,19 @@
 from flask_mysql_connector import MySQL
 from flask import Flask
 import config
-from activity_booking import act_api
+from activity_booking import act_book_api
 from activity import act_api
 from employee import emp_api
+from login import auth_api
 
 
 app = Flask(__name__)
 app.register_blueprint(act_api)
-app.register_blueprint(act_api)
+app.register_blueprint(act_book_api)
 app.register_blueprint(emp_api)
+app.register_blueprint(auth_api)
 
-
+app.config['SECRET_KEY'] = 'NPMS'
 app.config['MYSQL_HOST'] = config.URL
 app.config['MYSQL_USER'] = config.USERNAME
 app.config['MYSQL_PASSWORD'] = config.PASSWORD
