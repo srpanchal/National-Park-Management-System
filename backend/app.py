@@ -12,6 +12,7 @@ from account import account_api
 from accounts_clerk import account_clerk_api
 from account_manager import account_mgr_api
 from department import dept_api
+from animal import animals_api
 
 app = Flask(__name__)
 app.register_blueprint(act_api)
@@ -25,6 +26,7 @@ app.register_blueprint(account_clerk_api)
 app.register_blueprint(account_mgr_api)
 app.register_blueprint(dept_api)
 app.register_blueprint(auth_api)
+app.register_blueprint(animals_api)
 
 
 app.config['SECRET_KEY'] = 'NPMS'
