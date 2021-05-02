@@ -5,6 +5,7 @@ class ActivityBooking extends React.Component {
         return (
             <h3> Activity Booking</h3>
             
+            
         );
     }
 }

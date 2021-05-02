@@ -11,6 +11,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Species from './Components/SpeciesDetails';
 import SpeciesDetails from './Components/SpeciesDetails';
 import ActivityBooking from './Components/ActivityBooking';
+import CampingBooking from './Components/CampingBooking';
+import TourBooking from './Components/TourBooking';
+import HikingBooking from './Components/HikingBooking';
 
 function App() {
   return (
@@ -31,13 +34,19 @@ function App() {
           </Route>
           <Route path="/about">
             <Home />
-          </Route> 
+          </Route>
           <Route path="/species">
-            <SpeciesDetails/>
-            </Route> 
-            <Route path="/ActivityBooking">
-              <ActivityBooking/>
-              </Route>  
+            <SpeciesDetails />
+          </Route>
+          <Route path="/campingBooking">
+            <CampingBooking />
+          </Route>
+          <Route path="/tourBooking">
+            <TourBooking />
+          </Route>
+          <Route path="/hikingBooking">
+            <HikingBooking />
+          </Route>
         </Switch>
       </BrowserRouter>
 

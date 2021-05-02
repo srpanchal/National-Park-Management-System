@@ -21,7 +21,7 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer> <Link to="/activityBooking">Book Now</Link></Card.Footer>
+                        <Card.Footer> <Link to="/campingBooking">Book Now</Link></Card.Footer>
                     </Card>
                     </Col>
                     <Col s={4}>
@@ -36,7 +36,7 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer> <Link to="/activityBooking">Book Now</Link></Card.Footer>
+                        <Card.Footer> <Link to="/hikingBooking">Book Now</Link></Card.Footer>
                     </Card>
                     </Col>
                     <Col s={4}>
@@ -51,7 +51,7 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer> <Link to="/activityBooking">Book Now</Link></Card.Footer>
+                        <Card.Footer> <Link to="/tourBooking">Book Now</Link></Card.Footer>
 
                     </Card>
                     </Col>

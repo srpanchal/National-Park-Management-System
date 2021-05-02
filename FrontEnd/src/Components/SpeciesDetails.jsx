@@ -16,10 +16,23 @@ class SpeciesDetails extends React.Component {
         // api call
 
     componentDidMount() {
-        // fetch('http://localhost:3000/api/droplets')
+        // fetch('http://50.18.241.42/booking')
         // .then(res => res.json())
-        // .then(json => json.droplets)
-        // .then(droplets => this.setState({ 'droplets': droplets }))
+        // .then(res => {
+        //     console.log(res);
+        // });
+
+        
+    // const requestOptions = {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ data: data }),
+    //   };
+  
+    //   let response = await fetch("http://50.18.241.42/booking", requestOptions);
+    //    response = await response.json();
+  
+    //    console.log(response);
 
         const list =  [
                 {
