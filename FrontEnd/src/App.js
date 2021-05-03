@@ -15,7 +15,7 @@ import ActivityBooking from './Components/ActivityBooking';
 import CampingBooking from './Components/CampingBooking';
 import TourBooking from './Components/TourBooking';
 import HikingBooking from './Components/HikingBooking';
-import TouristBookings from './Components/TouristBookings';
+import TouristBooking from './Components/TouristBooking';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,11 +27,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          {isTourist() && (
+          {/* {isTourist() && (
             <Route exact path="/bookings">
               <TouristBookings />
             </Route>
-          )}
+          )} */}
           <Route path="/login">
             <Login />
           </Route>
@@ -59,8 +59,8 @@ function App() {
           <Route path="/hikingBooking">
             <HikingBooking />
           </Route>
-          <Route path="/touristBookings">
-            <TouristBookings/>
+          <Route path="/touristBooking">
+            <TouristBooking/>
           </Route>
         </Switch>
       </BrowserRouter>

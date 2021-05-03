@@ -3,6 +3,7 @@ import { APIConstants } from '../Utils/APIConstants';
 import { Table } from 'react-bootstrap';
 import NavigationBar from "./NavigationBar";
 import { Button } from "react-bootstrap";
+import {getUser} from '../Utils/helper';
 
 class TouristBooking extends React.Component {
 
@@ -13,11 +14,15 @@ class TouristBooking extends React.Component {
         this.state = {
             bookings: [
             ],
-            tourist_id: 124474
+            tourist_id: getUser().id
         };
     }
 
     componentDidMount() {
+        this.getTouristBookingDetails();
+    }
+
+    getTouristBookingDetails = () => {
         fetch(`${APIConstants.getTouristBookingDetails}?tourist_id=${this.state.tourist_id}`)
             .then(res => res.json())
             .then(res => {
@@ -29,8 +34,32 @@ class TouristBooking extends React.Component {
 
     }
 
-    cancelBooking= (id) => {
-        console.log(id);
+    cancelBooking = (booking) => {
+        console.log(booking);
+        const date = new Date(booking.booking_date);
+        console.log(date.toISOString().slice(0, 19).replace('T', ' '));
+        const requestJson = {
+            actv_id: booking.actv_id,
+            booking_date: date.toISOString().slice(0, 19).replace('T', ' '),
+            tourist_id: booking.tourist_id
+        }
+
+        const requestOptions = {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(requestJson)
+        };
+        fetch(`${APIConstants.bookActivity}`, requestOptions)
+            .then(res => {
+                if (res) {
+                    this.getTouristBookingDetails();
+
+                }
+                else {
+                    alert('try again');
+                }
+            })
+
     }
 
     render() {
@@ -47,7 +76,7 @@ class TouristBooking extends React.Component {
                             <th>Activity Name</th>
                             <th>Site</th>
                             <th>Status</th>
-                            <th>Cancel Booking</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -59,8 +88,9 @@ class TouristBooking extends React.Component {
                                             <td>{book.booking_date}</td>
                                             <td>{book.actv_type}</td>
                                             <td>{book.site}</td>
-                                            <td>{book.status}</td>
-                                            <td> <Button onClick= {e => this.cancelBooking(book)}>Cancel</Button></td>
+
+                                            {book.status === 'ACTIVE' ? (<td> <Button active={false} onClick={e => this.cancelBooking(book)}>Cancel</Button></td>) : (<td>Cancelled</td>)}
+
                                         </tr>
                                     )
 
@@ -82,7 +112,7 @@ class TouristBooking extends React.Component {
                             <th>cost</th>
                             <th>Vehicle</th>
                             <th>Status</th>
-                            <th>Cancel Booking</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -96,8 +126,9 @@ class TouristBooking extends React.Component {
                                             <td>{book.route}</td>
                                             <td>{book.cost}</td>
                                             <td>{book.vehicle}</td>
-                                            <td>{book.status}</td>
-                                            <td> <Button onClick= {e => this.cancelBooking(book)}>Cancel</Button></td>
+
+                                            {book.status === 'ACTIVE' ? (<td> <Button active={false} onClick={e => this.cancelBooking(book)}>Cancel</Button></td>) : (<td>Cancelled</td>)}
+
                                         </tr>
                                     )
 
@@ -119,7 +150,7 @@ class TouristBooking extends React.Component {
                             <th>cost</th>
                             <th>Vehicle</th>
                             <th>Status</th>
-                            <th>Cancel Booking</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -133,8 +164,7 @@ class TouristBooking extends React.Component {
                                             <td>{book.route}</td>
                                             <td>{book.cost}</td>
                                             <td>{book.vehicle}</td>
-                                            <td>{book.status}</td>
-                                            <td> <Button onClick= {e => this.cancelBooking(book)}>Cancel</Button></td>
+                                            {book.status === 'ACTIVE' ? (<td> <Button active={false} onClick={e => this.cancelBooking(book)}>Cancel</Button></td>) : (<td>Cancelled</td>)}
                                         </tr>
                                     )
 
