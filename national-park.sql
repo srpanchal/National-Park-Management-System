@@ -10,7 +10,9 @@ create table Employee (
 	role		varchar(20),
 	emp_dept	varchar(20),
 	age			numeric(2),
-	gender		varchar(10),
+	gender		varchar(10)
+	-- email 		varchar(50),
+	-- phone_no 	numeric(10),
 	primary key (emp_id)
 	);
 
@@ -238,12 +240,12 @@ create table Species_Doctor (
 
 
 create table User (
-  id  int auto_increment,
-  role  varchar(20) check (role in ('Tourist', 'Admin')),
-  email varchar(50) not null,
-  password varchar(300) not null,
-  fullname varchar(100) not null,
-  phone varchar(10),
-  address varchar(100),
+  id  		int auto_increment,
+  role  	varchar(20) check (role in ('Tourist', 'Admin', 'Employee')),
+  email 	varchar(50) not null,
+  password 	varchar(300) not null,
+  fullname 	varchar(100),
+  phone 	numeric(10),
+  address 	varchar(100),
   primary key (id)
 );
