@@ -1,5 +1,6 @@
 from flask import make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
+from flask import current_app
 
 act_api = Blueprint('act_api', __name__)
 mysql = MySQL()
@@ -23,12 +24,14 @@ def getCamping():
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_camping)
+        current_app.logger.info("Fetching all camping data")
         rows = cursor.fetchall()
         cursor.close()
         conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
+
 
 def getHiking():
     get_all_hiking = "SELECT * FROM Hiking"
@@ -36,12 +39,13 @@ def getHiking():
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_hiking)
+        current_app.logger.info("Fetching all hiking data")
         rows = cursor.fetchall()
         cursor.close()
         conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
 
 
 def getTour():
@@ -50,12 +54,13 @@ def getTour():
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_tour)
+        current_app.logger.info("Fetching all tour data")
         rows = cursor.fetchall()
         cursor.close()
         conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
 
 
 def getActivity():
@@ -71,8 +76,9 @@ def getActivity():
         rows += cursor.fetchall()
         cursor.execute(get_all_camping)
         rows += cursor.fetchall()
+        current_app.logger.info("Fetching all activities")
         cursor.close()
         conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
