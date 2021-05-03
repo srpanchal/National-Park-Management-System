@@ -15,9 +15,9 @@ mysql = MySQL()
 def signup():
     try:
         data = request.json
-        if 'email' not in data or 'password' not in data or 'fullname' not in data:
+        if 'email' not in data or 'password' not in data:
             flash("Email/password/fullname cannot be empty.")
-            current_app.logger.info("Email/password/fullname cannot be empty.")
+            current_app.logger.info("Email/password cannot be empty.")
             return make_response("False", 500)
         email = data['email']
         password = data['password']
@@ -25,6 +25,7 @@ def signup():
         fullname = data['fullname'] if 'fullname' in data else ''
         phone = data['phone'] if 'phone' in data else 0000000000
         address = data['address'] if 'address' in data else ''
+        isEmployee = bool(data['isEmployee']) if 'isEmployee' in data else False
 
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True, buffered=True)
@@ -36,11 +37,24 @@ def signup():
             current_app.logger.info('Email already exists.')
             return make_response("Signup Failed", 401)
 
+        select_one_emp = "SELECT * FROM Employee WHERE email = %s;"
+        cursor.execute(select_one_emp, (email,))
+        row = cursor.fetchone()
+        if isEmployee:
+            if row is None:
+                flash('User is not registered as employee.')
+                print('User is not registered as employee.')
+                current_app.logger.info('User is not registered as employee.')
+                return make_response("Signup Failed", 401)
+            else:
+                role = row['role']
+                print('Employee logged in with role ' + role)
+
         insert_data = "Insert into User (role,email,password,fullname,phone,address) values (%s,%s,%s,%s,%s,%s);"
         cursor.execute(insert_data,
                        (role, email, generate_password_hash(password, method='sha256'), fullname, phone, address))
         cursor.execute(select_one, (email,))
-        current_app.logger.info("Creating user. User name is %s and role is %s" ,fullname,role )
+        current_app.logger.info("Creating user. User name is %s and role is %s", fullname, role)
         row = cursor.fetchone()
         del row['password']
         conn.commit()
