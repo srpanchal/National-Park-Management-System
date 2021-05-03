@@ -9,6 +9,17 @@ mysql = MySQL()
 
 inv_api = Blueprint('inv_api', __name__)
 
+get_inventory = """SELECT i.inv_id, i.name, i.category, i.quantity, i.cost_per_item, emp_name, m.emp_id
+FROM inventory i 
+JOIN Manage_Inventory m on i.inv_id = m.inv_id 
+LEFT JOIN employee e on m.emp_id = e.emp_id
+WHERE i.inv_id = %s"""
+
+get_all_inventory = """SELECT i.inv_id, i.name, i.category, i.quantity, i.cost_per_item, emp_name, m.emp_id
+FROM inventory i 
+JOIN Manage_Inventory m on i.inv_id = m.inv_id 
+LEFT JOIN employee e on m.emp_id = e.emp_id"""
+
 
 @inv_api.route('/inventory', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def inventory():
@@ -17,15 +28,13 @@ def inventory():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             if 'inv_id' in request.args:
-                get_inv = """SELECT * FROM Inventory  \
-                          WHERE inv_id = %s"""
-                cursor.execute(get_inv, (request.args.get('inv_id'),))
+                cursor.execute(get_inventory, (request.args.get('inv_id'),))
                 current_app.logger.info("Fetching inventory for inventory id %s", request.args.get('inv_id'))
                 rows = cursor.fetchone()
             else:
-                get_inv = "SELECT * FROM Inventory"
+                # get_inv = "SELECT * FROM Inventory"
                 current_app.logger.info("Fetching all inventories")
-                cursor.execute(get_inv)
+                cursor.execute(get_all_inventory)
                 rows = cursor.fetchall()
 
             return make_response(json.dumps(rows), 200)
@@ -43,10 +52,14 @@ def inventory():
             VALUES ( %s, %s, %s, %s, %s )"""
             inv_id = random.randint(100, 999999)
             data = (inv_id, body['name'], body['category'], body['quantity'], body['cost_per_item'])
+            post_mge_inv = """INSERT INTO Manage_Inventory (emp_id,inv_id)
+                        VALUES ( %s, %s)"""
+            data_mge = (body['emp_id'], body['inv_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_inventory, data)
-            current_app.logger.info("Inserting inventory data. Inventory id is %s" ,inv_id)
+            cursor.execute(post_mge_inv, data_mge)
+            current_app.logger.info("Inserting inventory data. Inventory id is %s", inv_id)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -62,7 +75,7 @@ def inventory():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_inventory, data)
-            current_app.logger.info("Deleting inventory %s" ,request.args.get('inv_id'))
+            current_app.logger.info("Deleting inventory %s", request.args.get('inv_id'))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -77,11 +90,11 @@ def inventory():
             update_inventory = """UPDATE Inventory set inv_id = %s,name = %s,category= %s, quantity= %s,cost_per_item= %s
             WHERE inv_id = %s"""
             data = (
-            body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'], body['inv_id'])
+                body['inv_id'], body['name'], body['category'], body['quantity'], body['cost_per_item'], body['inv_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_inventory, data)
-            current_app.logger.info("Updating inventory %s",  body['inv_id'])
+            current_app.logger.info("Updating inventory %s", body['inv_id'])
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
