@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { API_URL } from '../Utils/constants';
+import { API_URL, USER_ROLES } from '../Utils/constants';
+import { storeUser } from '../Utils/helper';
 
 export default function CreateAccount() {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -21,7 +24,13 @@ export default function CreateAccount() {
     })
       .then(res => res.json())
       .then(json => {
-        console.log('----LOGIN----', json);
+        storeUser(json);
+        
+        if (json.role === USER_ROLES.tourist) {
+          history.replace('/');
+        } else {
+          history.replace('/employee-home');
+        }
       });
   }
 
@@ -35,7 +44,9 @@ export default function CreateAccount() {
       onSubmit({
         email,
         password,
-        fullname: name
+        fullname: name,
+        phone,
+        address
       });
     }
   };

@@ -10,15 +10,15 @@ mysql = MySQL()
 inv_api = Blueprint('inv_api', __name__)
 
 get_inventory = """SELECT i.inv_id, i.name, i.category, i.quantity, i.cost_per_item, emp_name, m.emp_id
-FROM inventory i 
+FROM Inventory i 
 JOIN Manage_Inventory m on i.inv_id = m.inv_id 
-LEFT JOIN employee e on m.emp_id = e.emp_id
+LEFT JOIN Employee e on m.emp_id = e.emp_id
 WHERE i.inv_id = %s"""
 
 get_all_inventory = """SELECT i.inv_id, i.name, i.category, i.quantity, i.cost_per_item, emp_name, m.emp_id
-FROM inventory i 
+FROM Inventory i 
 JOIN Manage_Inventory m on i.inv_id = m.inv_id 
-LEFT JOIN employee e on m.emp_id = e.emp_id"""
+LEFT JOIN Employee e on m.emp_id = e.emp_id"""
 
 
 @inv_api.route('/inventory', methods=['GET', 'POST', 'DELETE', 'PUT'])

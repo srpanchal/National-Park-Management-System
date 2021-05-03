@@ -51,6 +51,7 @@ def signup():
                 role = row['role']
                 emp_id = row['emp_id']
                 print('Employee logged in with role ' + role)
+                current_app.logger.info('Employee logged in with role ' , role)
 
         insert_data = "Insert into User (role,email,password,fullname,phone,address,emp_id) values (%s,%s,%s,%s,%s," \
                       "%s,%s); "

@@ -1,7 +1,9 @@
 import React from "react";
 import NavigationBar from "../Components/NavigationBar";
 import {Table, Button} from "react-bootstrap";
-import {APIConstants} from '../Util/APIConstants';
+import {APIConstants} from '../Utils/APIConstants';
+import { getUser } from '../Utils/helper';
+import {withRouter} from "react-router-dom";
 
 class campingBooking extends React.Component {
 
@@ -13,7 +15,7 @@ class campingBooking extends React.Component {
             ],
             selectedCamping: '',
             selectedDate: '',
-            tourist_id: 124474 
+            tourist_id: getUser().id
         };
     }
 
@@ -70,6 +72,7 @@ class campingBooking extends React.Component {
 
             if(response){
                 alert('Ticket Booked');
+                this.props.history.push("/touristBooking");
             }
             else {
                 alert('failed ! try again');
@@ -94,27 +97,27 @@ class campingBooking extends React.Component {
         
             <h3> Camping Booking</h3>
 
-            <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>Site</th>
-                            <th>Cost</th>
-                            <th> Select</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                         { 
-                         this.state.camping.length > 0 && this.state.camping.map(c => (
-                              <tr key ={c.actv_id}>
-                              <td>{c.site}</td>
-                              <td>{c.cost}</td>
-                              <td> <input type = "radio"  name= "camp" value = {c.actv_id} onChange={this.HandleSelection}/> </td>         
-                               </tr>
-                         )) }
-                         
-                       
-                    </tbody>
-                </Table>
+                <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Site</th>
+                                <th>Cost</th>
+                                <th> Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { 
+                            this.state.camping.length > 0 && this.state.camping.map(c => (
+                                <tr key ={c.actv_id}>
+                                <td>{c.site}</td>
+                                <td>{c.cost}</td>
+                                <td> <input type = "radio"  name= "camp" value = {c.actv_id} onChange={this.HandleSelection}/> </td>         
+                                </tr>
+                            )) }
+                            
+                        
+                        </tbody>
+                    </Table>
 
                 <div>
 
@@ -133,4 +136,4 @@ class campingBooking extends React.Component {
     }
 }
 
-export default campingBooking;
+export default withRouter(campingBooking);

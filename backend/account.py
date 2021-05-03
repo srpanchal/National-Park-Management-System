@@ -9,14 +9,14 @@ mysql = MySQL()
 account_api = Blueprint('account_api', __name__)
 
 get_account_data = """SELECT a.transaction_id, a.type, a.pupose, a.amount, a.details, emp_name, m.emp_id
-                    FROM account a 
-                    JOIN manage_account m on a.transaction_id = m.transaction_id 
-                    LEFT JOIN employee e on m.emp_id = e.emp_id
+                    FROM Account a 
+                    JOIN Manage_Account m on a.transaction_id = m.transaction_id 
+                    LEFT JOIN Employee e on m.emp_id = e.emp_id
                     WHERE a.transaction_id = %s"""
 get_all_account_data = """SELECT a.transaction_id, a.type, a.pupose, a.amount, a.details, emp_name, m.emp_id
-                            FROM account a 
-                            JOIN manage_account m on a.transaction_id = m.transaction_id 
-                            LEFT JOIN employee e on m.emp_id = e.emp_id"""
+                            FROM Account a 
+                            JOIN Manage_Account m on a.transaction_id = m.transaction_id 
+                            LEFT JOIN Employee e on m.emp_id = e.emp_id"""
 
 
 @account_api.route('/account', methods=['GET', 'POST', 'DELETE', 'PUT'])
@@ -52,7 +52,7 @@ def account():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_acc, data)
-            current_app.logger.info('Posting account data for employee id %s. Transaction id is %s',
+            current_app.logger.info('Posting account data for Employee id %s. Transaction id is %s',
                             body['emp_id'], body['transaction_id'])
             cursor.execute(post_mge_acc, data_mge)
             conn.commit()
