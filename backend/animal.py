@@ -68,7 +68,8 @@ def animals():
             update_employee = """UPDATE Species set species_id = %s,name = %s,age= %s, description= %s,gender= %s,
             category = %s WHERE species_id = %s"""
             data = (
-                body['species_id'], body['name'], body['age'], body['description'], body['gender'], body['category'],body['species_id'])
+                body['species_id'], body['name'], body['age'], body['description'], body['gender'], body['category'],
+                body['species_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_employee, data)
@@ -80,3 +81,42 @@ def animals():
         finally:
             cursor.close()
             conn.close()
+
+
+@animals_api.route('/animals-stats', methods=['GET'])
+def getStats():
+    try:
+        conn = mysql.connection
+        cursor = conn.cursor(dictionary=True, buffered=True)
+        stats = {}
+        count_query = "SELECT COUNT(*) as total_count FROM Species;"
+        cursor.execute(count_query)
+        row = cursor.fetchone()
+        stats['total_count'] = row['total_count']
+
+        gender_query = """SELECT gender, COUNT(*) as count
+                        FROM Species
+                        GROUP BY gender;"""
+        cursor.execute(gender_query)
+        rows = cursor.fetchall()
+        stats['gender_stats'] = rows
+
+        category_query = """SELECT category, COUNT(*) as count
+                        FROM Species
+                        GROUP BY category;"""
+        cursor.execute(category_query)
+        rows = cursor.fetchall()
+        stats['category_stats'] = rows
+
+        age_query = """SELECT SUM(CASE WHEN age < 10 THEN 1 ELSE 0 END) AS 'Under 10',
+                        SUM(CASE WHEN age BETWEEN 11 AND 20 THEN 1 ELSE 0 END) AS '11-20',
+                        SUM(CASE WHEN age BETWEEN 21 AND 30 THEN 1 ELSE 0 END) AS '21-30',
+                        SUM(CASE WHEN age > 30 THEN 1 ELSE 0 END) AS '30 And More'
+                        FROM Species"""
+        cursor.execute(age_query)
+        rows = cursor.fetchall()
+        stats['age_stats'] = rows
+        return make_response(json.dumps(stats), 200)
+    except Exception as e:
+        print(e)
+        return make_response("false", 500)
