@@ -12,6 +12,7 @@ export default function CreateAccount() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isEmployee, setIsEmployee] = useState(true);
   const [validated, setValidated] = useState(false);
 
   const onSubmit = (data) => {
@@ -45,8 +46,9 @@ export default function CreateAccount() {
         email,
         password,
         fullname: name,
-        phone,
-        address
+        phone: phone || "",
+        address,
+        isEmployee
       });
     }
   };
@@ -123,6 +125,14 @@ export default function CreateAccount() {
                 placeholder="Confirm password"
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Check
+                type="checkbox"
+                label="Is Employee?"
+                checked={isEmployee}
+                onChange={e => setIsEmployee(e.target.checked)}
               />
             </Form.Group>
             <Button variant="primary" type="submit">

@@ -8,11 +8,11 @@ export const USER_ROLES = {
 };
 
 export const EMPLOYEE_ROLES = {
-  ticketIssuer: "Ticket Issuer",
-  tourGuide: "Tour Guide",
-  forestOfficer: "Forest Officer",
-  accountClerk: "Accounts Clerk",
-  vetDoc: "Veterinary Doctor"
+  ticketIssuer: "Ticket issuer",
+  tourGuide: "Tour guide",
+  forestOfficer: "Forest officer",
+  accountClerk: "Accounts clerk",
+  vetDoc: "Veterinary doctor"
 };
 
 export const VETERINARY_DOC_TYPES = {

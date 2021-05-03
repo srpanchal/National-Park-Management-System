@@ -36,4 +36,4 @@ export const isTicketIssuer = () => {
   return user && user.role === EMPLOYEE_ROLES.ticketIssuer;
 }
 
-export const isTouristOrTicketIssuer = () => isTourist() || isTicketIssuer();
+export const canIssueOrBookTicket = () => isTourist() || isTicketIssuer() || isAdmin();

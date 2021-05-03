@@ -5,7 +5,7 @@ import { getUser } from '../../Utils/helper';
 const AddAccount = ({ onSubmit }) => {
   const [transNum, setTransNum] = useState("");
   const [purpose, setPurpose] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Debit");
   const [amount, setAmount] = useState("");
   const [details, setDetails] = useState("");
   const [validated, setValidated] = useState(false);

@@ -13,7 +13,7 @@ export default function Login() {
   return (
     <Container>
       <Navbar bg="primary" variant="dark">
-      <Navbar.Brand href="/">Nation Park</Navbar.Brand>
+      <Navbar.Brand href="/">National Park</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href={`${url}/inventory`}>Inventory</Nav.Link>
         <Nav.Link href={`${url}/account`}>Account</Nav.Link>
