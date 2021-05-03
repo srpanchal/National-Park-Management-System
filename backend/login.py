@@ -5,6 +5,7 @@ from flask_mysql_connector import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 import string
 import random
+from flask import current_app
 
 auth_api = Blueprint('auth_api', __name__)
 mysql = MySQL()
@@ -39,16 +40,17 @@ def signup():
         cursor.execute(insert_data,
                        (role, email, generate_password_hash(password, method='sha256'), fullname, phone, address))
         cursor.execute(select_one, (email,))
+        current_app.logger.info("Creating user. User name is %s and role is %s" ,fullname,role )
         row = cursor.fetchone()
         del row['password']
         conn.commit()
         if addTourist(row['id'], fullname, address, phone, email):
-            print('Tourist added')
+            current_app.logger.info('Tourist added')
         cursor.close()
         conn.close()
         return make_response(row, 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)
 
 
@@ -69,16 +71,17 @@ def login():
         cursor = conn.cursor(dictionary=True, buffered=True)
         cursor.execute(select_one, (email,))
         row = cursor.fetchone()
+        current_app.logger.info("User %s is logging in", email)
         if not row or not check_password_hash(row['password'], password):
             flash('Please check your login details and try again.')
-            print('Please check your login details and try again.')
+            current_app.logger.error('Login failed')
             return make_response("Login Failed", 401)
         cursor.close()
         conn.close()
         del row['password']
         return make_response(jsonify(row), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)
 
 
@@ -91,6 +94,7 @@ def addUser(email, role):
         cursor = conn.cursor(dictionary=True, buffered=True)
         select_one = "SELECT * FROM User WHERE email = %s;"
         cursor.execute(select_one, (email,))
+        current_app.logger.info("Adding user  %s ", email)
         row = cursor.fetchone()
         if row is not None:
             flash('Email already exists.')
@@ -112,7 +116,7 @@ def addUser(email, role):
         }
         return json.dumps(user)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return "False"
 
 
@@ -123,10 +127,11 @@ def addTourist(tourist_id, name, address, phone, email):
         insert_data = "Insert into Tourist (`tourist_id`, `name`, `address`, `phone_no`, `email`) " \
                       "VALUES (%s,%s,%s,%s,%s);"
         cursor.execute(insert_data, (tourist_id, name, address, phone, email))
+        current_app.logger.info("Adding tourist  %s ", tourist_id)
         conn.commit()
         cursor.close()
         conn.close()
         return True
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return False

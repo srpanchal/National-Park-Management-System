@@ -1,6 +1,7 @@
 import simplejson as json
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
+from flask import current_app
 import random
 
 mysql = MySQL()
@@ -38,10 +39,10 @@ def employees():
                 get_emp = "SELECT * FROM Employee"
                 cursor.execute(get_emp)
                 rows = cursor.fetchall()
-
+            current_app.logger.info("Fetching employee data")
             return make_response(json.dumps(rows), 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -60,6 +61,7 @@ def employees():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_employee, data)
+            current_app.logger.info("Inserting employee %s. Role is %s", body['emp_name'],role)
             if role == "Ticket issuer":
                 cursor.execute(insert_into_ticket_issuer, (emp_id,))
             elif role == "Tour guide":
@@ -73,7 +75,7 @@ def employees():
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -86,10 +88,11 @@ def employees():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_employee, data)
+            current_app.logger.info("Deleting employee %s",request.args.get('emp_id'))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -104,10 +107,11 @@ def employees():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_employee, data)
+            current_app.logger.info("Updating employee %s", body['emp_id'])
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()

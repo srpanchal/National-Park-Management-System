@@ -7,6 +7,7 @@ mysql = MySQL()
 
 inv_mgr_api = Blueprint('inv_mgr_api', __name__)
 
+
 @inv_mgr_api.route('/manage/inventory', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def inventory():
     if request.method == 'GET':

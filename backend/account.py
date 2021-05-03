@@ -2,6 +2,7 @@ import simplejson as json
 import config
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
+from flask import current_app
 
 mysql = MySQL()
 
@@ -27,13 +28,14 @@ def account():
             if 'transaction_id' in request.args:
                 cursor.execute(get_account_data, (request.args.get('transaction_id'),))
                 rows = cursor.fetchone()
+                current_app.logger.info('fetching account details for %s.', request.args.get('transaction_id'))
             else:
+                current_app.logger.info('fetching all accounts. \n')
                 cursor.execute(get_all_account_data)
                 rows = cursor.fetchall()
-
             return make_response(json.dumps(rows), 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -50,11 +52,13 @@ def account():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_acc, data)
+            current_app.logger.info('Posting account data for employee id %s. Transaction id is %s',
+                            body['emp_id'], body['transaction_id'])
             cursor.execute(post_mge_acc, data_mge)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -66,10 +70,11 @@ def account():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_account, data)
+            current_app.logger.info('Deleting transaction %s', request.args.get('transaction_id'))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -83,11 +88,12 @@ def account():
                     body['transaction_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
+            current_app.logger.info("Updating account data for %s", body['transaction_id'])
             cursor.execute(update_account, data)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
