@@ -17,7 +17,7 @@ def signup():
         data = request.json
         if 'email' not in data or 'password' not in data or 'fullname' not in data:
             flash("Email/password/fullname cannot be empty.")
-            print("Email/password/fullname cannot be empty.")
+            current_app.logger.info("Email/password/fullname cannot be empty.")
             return make_response("False", 500)
         email = data['email']
         password = data['password']
@@ -33,7 +33,7 @@ def signup():
         row = cursor.fetchone()
         if row is not None:
             flash('Email already exists.')
-            print('Email already exists.')
+            current_app.logger.info('Email already exists.')
             return make_response("Signup Failed", 401)
 
         insert_data = "Insert into User (role,email,password,fullname,phone,address) values (%s,%s,%s,%s,%s,%s);"
@@ -60,7 +60,7 @@ def login():
         data = request.json
         if 'email' not in data or 'password' not in data:
             flash("Email/password cannot be empty.")
-            print("Email/password cannot be empty.")
+            current_app.logger.info("Email/password cannot be empty.")
             return make_response("Bad request", 400)
         email = data['email']
         password = data['password']
@@ -103,7 +103,6 @@ def addUser(email, role):
         insert_data = "Insert into User (role,email,password) values (%s,%s,%s);"
         letters = string.ascii_letters
         password = ''.join(random.choice(letters) for i in range(5))
-        print(password)
         cursor.execute(insert_data,
                        (role, email, generate_password_hash(password, method='sha256')))
         conn.commit()
