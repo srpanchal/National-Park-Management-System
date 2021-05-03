@@ -13,6 +13,7 @@ from accounts_clerk import account_clerk_api
 from account_manager import account_mgr_api
 from department import dept_api
 from animal import animals_api
+import logging
 
 app = Flask(__name__)
 app.register_blueprint(act_api)
@@ -37,6 +38,10 @@ app.config['MYSQL_DATABASE'] = config.DATABASE
 mysql = MySQL()
 mysql.init_app(app)
 
+if __name__ != '__main__':
+    gunicorn_logger = logging.getLogger('gunicorn.error')
+    app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(gunicorn_logger.level)
 
 @app.route('/')
 def hello():
