@@ -15,18 +15,19 @@ INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('23', 'Hiking');
 
 
 
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('14', '485', 'nihil');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('6', '339', 'rem');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('7', '219', 'consequatur');
-INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('8', '330', 'reiciendis');
+INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('14', '100', 'Campsite 1');
+INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('6', '200', 'Campground');
+INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('7', '300', 'Campsite 2');
+INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('8', '400', 'Campsight 3');
+INSERT INTO `Camping` (`actv_id`, `cost`, `site`) VALUES ('2', '400', 'Campsight 4');
 
 
 
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('11', 'rerum', '11.07', '106.31', '27.28', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('20', 'nesciunt', '16.09', '63.20', '14.35', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('21', 'asperiores', '11.30', '74.96', '28.61', 'easy');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('22', 'labore', '7.27', '70.27', '23.05', 'moderate');
-INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('23', 'provident', '16.25', '78.75', '23.19', 'hard');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('11', 'half dome', '11.07', '106.31', '27.28', 'moderate');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('20', 'mirror lake', '16.09', '63.20', '14.35', 'moderate');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('21', 'trail 1', '11.30', '74.96', '28.61', 'easy');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('22', 'trail 2', '7.27', '70.27', '23.05', 'moderate');
+INSERT INTO `Hiking` (`actv_id`, `trail`, `elevation`, `duration`, `distance`, `difficulty_level`) VALUES ('23', 'trail 3', '16.25', '78.75', '23.19', 'hard');
 
 
 
@@ -271,10 +272,10 @@ INSERT INTO `Tour_Guide` (`emp_id`) VALUES ('4626084');
 
 
 
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('1', 'suv', '1590047', '204.07', 'quam', '1590047');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('3', 'jeep', '3475379', '286.01', 'ipsam', '3475379');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('12', 'jeep', '3781558', '264.78', 'omnis', '3781558');
-INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('9', 'jeep', '4626084', '249.27', 'nisi', '4626084');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('1', 'suv', '1590047', '200', 'half dome', '1590047');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('3', 'jeep', '3475379', '280', 'mirror lake', '3475379');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('12', 'jeep', '3781558', '260', 'valley point', '3781558');
+INSERT INTO `Tour` (`actv_id`, `vehicle`, `guide`, `cost`, `route`, `managed_by`) VALUES ('9', 'jeep', '4626084', '240', 'tunnel view', '4626084');
 
 
 
