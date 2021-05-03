@@ -13,10 +13,10 @@ cancel_activity_booking = "UPDATE Activity_Booking SET status = 'CANCELLED' " \
 get_activity_booking_by_id = """
                             SELECT * 
                             FROM Activity_Booking 
-                            JOIN Activity ON Activity_Booking.actv_id = Activity.actv_id 
                             LEFT JOIN Hiking ON Activity_Booking.actv_id = Hiking.actv_id 
                             LEFT JOIN Camping ON Activity_Booking.actv_id = Camping.actv_id
                             LEFT JOIN Tour ON Activity_Booking.actv_id = Tour.actv_id
+                            JOIN Activity ON Activity_Booking.actv_id = Activity.actv_id 
                             WHERE tourist_id = %s
                             ORDER BY booking_date ASC;"""
 update_activity_booking = "UPDATE Activity_Booking SET actv_id = %s, booking_date = %s " \

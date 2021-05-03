@@ -32,6 +32,7 @@ def getCamping():
     except Exception as e:
         current_app.logger.error(e)
 
+
 def getHiking():
     get_all_hiking = "SELECT * FROM Hiking"
     try:
