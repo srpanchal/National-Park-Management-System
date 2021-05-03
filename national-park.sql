@@ -251,16 +251,14 @@ create table User (
   primary key (id)
 );
 
-ALTER TABLE Employee
-DROP phone_no;
+
 -- use national_park;
 -- ALTER TABLE Employee
--- ADD COLUMN email VARCHAR(50),
--- ADD COLUMN phone_no NUMERIC(10);
+-- ADD COLUMN email VARCHAR(50);
 
 -- SET SQL_SAFE_UPDATES = 0;
 -- UPDATE Employee
--- SET email = 'default@email.com', phone_no = 0000000000;
+-- SET email = 'default@email.com';
 -- SET SQL_SAFE_UPDATES = 1;
 
 -- ALTER TABLE Employee
