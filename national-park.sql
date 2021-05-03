@@ -11,8 +11,8 @@ create table Employee (
 	emp_dept	varchar(20),
 	age			numeric(2),
 	gender		varchar(10)
-	-- email 		varchar(50),
-	-- phone_no 	numeric(10),
+	email 		varchar(50),
+	phone_no 	numeric(10),
 	primary key (emp_id)
 	);
 
@@ -241,7 +241,7 @@ create table Species_Doctor (
 
 create table User (
   id  		int auto_increment,
-  role  	varchar(20) check (role in ('Tourist', 'Admin', 'Employee')),
+  role  	varchar(20),
   email 	varchar(50) not null,
   password 	varchar(300) not null,
   fullname 	varchar(100),
@@ -249,3 +249,17 @@ create table User (
   address 	varchar(100),
   primary key (id)
 );
+
+
+-- use national_park;
+-- ALTER TABLE Employee
+-- ADD COLUMN email VARCHAR(50),
+-- ADD COLUMN phone_no NUMERIC(10);
+
+-- SET SQL_SAFE_UPDATES = 0;
+-- UPDATE Employee
+-- SET email = 'default@email.com', phone_no = 0000000000;
+-- SET SQL_SAFE_UPDATES = 1;
+
+-- ALTER TABLE Employee
+-- MODIFY COLUMN email VARCHAR(50) NOT NULL;
