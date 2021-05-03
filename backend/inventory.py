@@ -3,6 +3,7 @@ import config
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 import random
+from flask import current_app
 
 mysql = MySQL()
 
@@ -19,15 +20,17 @@ def inventory():
                 get_inv = """SELECT * FROM Inventory  \
                           WHERE inv_id = %s"""
                 cursor.execute(get_inv, (request.args.get('inv_id'),))
+                current_app.logger.info("Fetching inventory for inventory id %s", request.args.get('inv_id'))
                 rows = cursor.fetchone()
             else:
                 get_inv = "SELECT * FROM Inventory"
+                current_app.logger.info("Fetching all inventories")
                 cursor.execute(get_inv)
                 rows = cursor.fetchall()
 
             return make_response(json.dumps(rows), 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -38,14 +41,16 @@ def inventory():
             body = request.json
             post_inventory = """INSERT INTO Inventory (inv_id,name,category,quantity,cost_per_item)
             VALUES ( %s, %s, %s, %s, %s )"""
-            data = (random.randint(100, 999999), body['name'], body['category'], body['quantity'], body['cost_per_item'])
+            inv_id = random.randint(100, 999999)
+            data = (inv_id, body['name'], body['category'], body['quantity'], body['cost_per_item'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_inventory, data)
+            current_app.logger.info("Inserting inventory data. Inventory id is %s" ,inv_id)
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -57,10 +62,11 @@ def inventory():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_inventory, data)
+            current_app.logger.info("Deleting inventory %s" ,request.args.get('inv_id'))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -75,10 +81,11 @@ def inventory():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_inventory, data)
+            current_app.logger.info("Updating inventory %s",  body['inv_id'])
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()

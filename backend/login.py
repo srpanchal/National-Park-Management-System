@@ -1,7 +1,7 @@
 from flask import make_response, jsonify, Blueprint, request, flash
 from flask_mysql_connector import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask import current_app
 
 auth_api = Blueprint('auth_api', __name__)
 mysql = MySQL()
@@ -33,12 +33,13 @@ def signup():
         insert_data = "Insert into User (role,email,password,fullname,phone,address) values (%s,%s,%s,%s,%s,%s);"
         cursor.execute(insert_data,
                        (role, email, generate_password_hash(password, method='sha256'), fullname, phone, address))
+        current_app.logger.info("User created. Username is %s and role is %s", fullname, role)
         conn.commit()
         cursor.close()
         conn.close()
         return make_response("True", 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)
 
 
@@ -57,13 +58,16 @@ def login():
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True, buffered=True)
         cursor.execute(select_one, (email,))
+        current_app.logger.info("User %s logging in", email)
         row = cursor.fetchone()
         if not row or not check_password_hash(row['password'], password):
+            current_app.logger.error("Login failed")
             flash('Please check your login details and try again.')
             return make_response("Login Failed", 401)
+
         cursor.close()
         conn.close()
         return make_response(jsonify(row), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)

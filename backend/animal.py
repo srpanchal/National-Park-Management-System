@@ -1,7 +1,7 @@
 import simplejson as json
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
-
+from flask import current_app
 mysql = MySQL()
 
 animals_api = Blueprint('animals_api', __name__)
@@ -17,14 +17,16 @@ def animals():
                 get_animal = """SELECT * FROM Species  \
                           WHERE species_id = %s"""
                 cursor.execute(get_animal, (request.args.get('species_id'),))
+                current_app.logger.info("Fetching species %s",request.args.get('species_id'))
                 rows = cursor.fetchone()
             else:
                 get_animal = "SELECT * FROM Species"
                 cursor.execute(get_animal)
+                current_app.logger.info("Fetching all species in the park")
                 rows = cursor.fetchall()
             return make_response(json.dumps(rows), 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -39,10 +41,11 @@ def animals():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_animal, data)
+            current_app.logger.info("Inserting species %s", body['name'])
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -54,10 +57,11 @@ def animals():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_species, data)
+            current_app.logger.info("Delete species %s", request.args.get('species_id'))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -72,10 +76,11 @@ def animals():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_employee, data)
+            current_app.logger.info("Update species %s", body['name'])
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()

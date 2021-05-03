@@ -2,6 +2,7 @@ import simplejson as json
 import config
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
+from flask import current_app
 
 mysql = MySQL()
 
@@ -17,10 +18,10 @@ def account():
             get_acc_mgr = "SELECT * FROM Manage_Account"
             cursor.execute(get_acc_mgr)
             rows = cursor.fetchall()
-
+            current_app.logger.info("Fetching account managers")
             return make_response(json.dumps(rows), 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -34,10 +35,11 @@ def account():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_acc_mgr, data)
+            current_app.logger.info("Inserting account manager with employee id %s ", body['emp_id'])
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()
@@ -49,10 +51,11 @@ def account():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_account_mgr, data)
+            current_app.logger.info("Deleting account manager emp_id = %s" ,request.args.get('emp_id') )
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
-            print(e)
+            current_app.logger.error(e)
             return make_response("false", 500)
         finally:
             cursor.close()

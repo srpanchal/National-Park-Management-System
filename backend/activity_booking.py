@@ -1,5 +1,6 @@
 from flask import make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
+from flask import current_app
 
 act_book_api = Blueprint('act_book_api', __name__)
 mysql = MySQL()
@@ -47,7 +48,7 @@ def insertIntoActivityBooking(form):
         conn.close()
         return make_response("True", 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)
 
 
@@ -63,9 +64,10 @@ def getActivityBookingByTouristId(args):
         for row in rows:
             row = cleanNullTerms(row)
             new_rows.append(row)
+        current_app.logger.info("Get booking activity for tourist id %s ", args.get('tourist_id'))
         return make_response(jsonify(new_rows), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
 
 
 def cleanNullTerms(d):
@@ -81,12 +83,13 @@ def getAllActivityBookings():
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True)
         cursor.execute(get_all_activity_bookings)
+        current_app.logger.info("Get all activity bookings")
         rows = cursor.fetchall()
         cursor.close()
         conn.close()
         return make_response(jsonify(rows), 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
 
 
 def deleteActivityBooking(form):
@@ -95,11 +98,12 @@ def deleteActivityBooking(form):
         cursor = conn.cursor(dictionary=True)
         cursor.execute(cancel_activity_booking, (form['tourist_id'], form['actv_id'], form['booking_date']))
         conn.commit()
+        current_app.logger.info("Delete booking for %s,%s,%s" , form['tourist_id'], form['actv_id'], form['booking_date'])
         cursor.close()
         conn.close()
         return make_response("True", 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)
 
 
@@ -109,10 +113,11 @@ def updateActivityBooking(form):
         cursor = conn.cursor(dictionary=True)
         cursor.execute(update_activity_booking, (
         form['new_actv_id'], form['new_booking_date'], form['tourist_id'], form['actv_id'], form['booking_date']))
+        current_app.logger.info("Update booking for tourist id %s", form['tourist_id'])
         conn.commit()
         cursor.close()
         conn.close()
         return make_response("True", 200)
     except Exception as e:
-        print(e)
+        current_app.logger.error(e)
     return make_response("False", 500)
