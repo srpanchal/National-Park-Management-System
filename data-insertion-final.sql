@@ -68,6 +68,7 @@ INSERT INTO `Activity_Booking` (`tourist_id`, `actv_id`, `booking_date`) VALUES 
 
 
 
+INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`, `email`, `phone_no`) VALUES ('1', '1', 'Meena', 'Department manager', 'medical', '55', 'female', 'meena@gmail.com', 123);
 
 INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`) VALUES ('1035026', '428610', 'Jameson Hills', 'Ticket issuer', 'medical', '55', 'male');
 INSERT INTO `Employee` (`emp_id`, `salary`, `emp_name`, `role`, `emp_dept`, `age`, `gender`) VALUES ('1049406', '356424', 'Heather Kub MD', ' Department manager', 'forest', '68', 'female');
