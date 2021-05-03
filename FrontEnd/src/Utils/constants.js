@@ -5,4 +5,4 @@ export const USER_ROLES = {
   toursit: "Tourist",
   employee: "Employee",
   admin: "Admin"
-};
+}

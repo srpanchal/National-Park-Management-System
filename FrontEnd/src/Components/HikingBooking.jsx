@@ -3,7 +3,7 @@ import NavigationBar from "./NavigationBar";
 import { Table } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { APIConstants } from "../Util/APIConstants";
+import { APIConstants } from "../Utils/APIConstants";
 
 
 class HikingBooking extends React.Component {

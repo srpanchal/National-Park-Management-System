@@ -15,6 +15,8 @@ import ActivityBooking from './Components/ActivityBooking';
 import CampingBooking from './Components/CampingBooking';
 import TourBooking from './Components/TourBooking';
 import HikingBooking from './Components/HikingBooking';
+import TouristBooking from './Components/TouristBooking';
+
 
 function App() {
   return (
@@ -50,6 +52,9 @@ function App() {
           </Route>
           <Route path="/hikingBooking">
             <HikingBooking />
+          </Route>
+          <Route path="/touristBooking">
+            <TouristBooking/>
           </Route>
         </Switch>
       </BrowserRouter>

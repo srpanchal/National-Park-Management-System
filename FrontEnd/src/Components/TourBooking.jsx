@@ -1,7 +1,8 @@
 import React from "react";
 import NavigationBar from "./NavigationBar";
 import { Table, Button } from "react-bootstrap";
-import {APIConstants} from '../Util/APIConstants';
+import {APIConstants} from '../Utils/APIConstants';
+import { withRouter } from "react-router-dom";
 
 class TourBooking extends React.Component {
 
@@ -44,7 +45,10 @@ class TourBooking extends React.Component {
         })
     }
 
+    
+
     handleSubmit = async () => {
+       
         console.log(this.state);
         if (this.state.selectedDate === '' || this.state.selectedCamping === '') {
             alert('Please select date and hike');
@@ -70,6 +74,8 @@ class TourBooking extends React.Component {
 
                     if (response) {
                         alert('Ticket Booked');
+                        this.props.history.push("/touristBooking");
+
                     }
                     else {
                         alert('failed ! try again');
@@ -90,6 +96,7 @@ class TourBooking extends React.Component {
             <div>
                 <NavigationBar />
                 <h3> Tour Booking</h3>
+                
 
                 <Table striped bordered hover>
                     <thead>
@@ -133,4 +140,4 @@ class TourBooking extends React.Component {
     }
 }
 
-export default TourBooking;
+export default withRouter(TourBooking);
