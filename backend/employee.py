@@ -46,7 +46,6 @@ def employees():
         finally:
             cursor.close()
             conn.close()
-    #         Ticket issuer|Tour guide|Forest officer|Accounts clerk|Veterinary doctor
     if request.method == 'POST':
         try:
             body = request.json
