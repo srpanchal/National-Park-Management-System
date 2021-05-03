@@ -20,10 +20,9 @@ export default function Login() {
     })
       .then(res => res.json())
       .then(json => {
-        delete json.password;
         storeUser(json);
         
-        if (history.role === USER_ROLES.toursit) {
+        if (json.role === USER_ROLES.tourist) {
           history.replace('/');
         } else {
           history.replace('/employee-home');

@@ -2,6 +2,7 @@ import React from "react";
 import NavigationBar from "../Components/NavigationBar";
 import {Table, Button} from "react-bootstrap";
 import {APIConstants} from '../Utils/APIConstants';
+import { getUser } from '../Utils/helper';
 
 class campingBooking extends React.Component {
 
@@ -13,7 +14,7 @@ class campingBooking extends React.Component {
             ],
             selectedCamping: '',
             selectedDate: '',
-            tourist_id: 124474 
+            tourist_id: getUser().id
         };
     }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Col, Row, Container } from 'react-bootstrap';
+import { getUser } from '../../Utils/helper';
 
 const AddAccount = ({ onSubmit }) => {
   const [transNum, setTransNum] = useState("");
@@ -21,7 +22,8 @@ const AddAccount = ({ onSubmit }) => {
         pupose: purpose,
         type,
         amount,
-        details
+        details,
+        emp_id: getUser().id
       });
     }
   };

@@ -5,7 +5,7 @@ import { isAdmin } from '../Utils/helper';
 
 import Accounting from './Accounting';
 import Inventory from './Inventory';
-import AddEmployee from './Forms/AddEmployee';
+import CreateEmployee from './CreateEmployee';
 
 export default function Login() {
   let { path, url } = useRouteMatch();
@@ -17,7 +17,7 @@ export default function Login() {
       <Nav className="mr-auto">
         <Nav.Link href={`${url}/inventory`}>Inventory</Nav.Link>
         <Nav.Link href={`${url}/account`}>Account</Nav.Link>
-        {isAdmin() && (<Nav.Link href={`${url}/add-employee`}>Add Employee</Nav.Link>)}
+        {isAdmin() && (<Nav.Link href={`${url}/create-employee`}>Add Employee</Nav.Link>)}
       </Nav>
       </Navbar>
       <Switch>
@@ -28,8 +28,8 @@ export default function Login() {
           <Accounting />
         </Route>
         {isAdmin() && (
-          <Route path={`${path}/add-employee`}>
-            <AddEmployee />
+          <Route path={`${path}/create-employee`}>
+            <CreateEmployee />
           </Route>
         )}
       </Switch>

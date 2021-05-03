@@ -23,3 +23,9 @@ export const isAdmin = () => {
 
   return user && user.role === USER_ROLES.admin;
 }
+
+export const isTourist = () => {
+  const user = getUser();
+
+  return user && user.role === USER_ROLES.tourist;
+}
