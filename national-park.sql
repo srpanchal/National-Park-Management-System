@@ -10,12 +10,11 @@ create table Employee (
 	role		varchar(20),
 	emp_dept	varchar(20),
 	age			numeric(2),
-	gender		varchar(10)
+	gender		varchar(10),
 	email 		varchar(50),
 	phone_no 	numeric(10),
 	primary key (emp_id)
 	);
-
 
 create table Emp_Phone_No (
 	emp_id		varchar(10),
@@ -250,7 +249,8 @@ create table User (
   primary key (id)
 );
 
-
+ALTER TABLE Employee
+DROP phone_no;
 -- use national_park;
 -- ALTER TABLE Employee
 -- ADD COLUMN email VARCHAR(50),
