@@ -3,9 +3,12 @@ import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {Container} from "react-bootstrap";
+import { getUser } from '../Utils/helper';
 
 class Activities extends React.Component {
     render() {
+        const user = getUser();
+
         return (
             <Container className="mb-5 mt-5">
                 <h3> Activities</h3>
@@ -24,7 +27,11 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer> <Link to="/campingBooking">Book Now</Link></Card.Footer>
+                        <Card.Footer>
+                            <Link to={`${user ? '/campingBooking' : '/login'}`}>
+                                Book Now
+                            </Link>
+                        </Card.Footer>
                     </Card>
                     </Col>
                     <Col s={4}>
@@ -42,7 +49,11 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer> <Link to="/hikingBooking">Book Now</Link></Card.Footer>
+                        <Card.Footer>
+                            <Link to={`${user ? '/hikingBooking' : '/login'}`}>
+                                Book Now
+                            </Link>
+                        </Card.Footer>
                     </Card>
                     </Col>
                     <Col s={4}>
@@ -57,7 +68,11 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer> <Link to="/tourBooking">Book Now</Link></Card.Footer>
+                        <Card.Footer>
+                            <Link to={`${user ? '/tourBooking' : '/login'}`}>
+                                Book Now
+                            </Link>
+                        </Card.Footer>
 
                     </Card>
                     </Col>
