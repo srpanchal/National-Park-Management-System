@@ -26,6 +26,7 @@ def signup():
         phone = data['phone'] if 'phone' in data else 0000000000
         address = data['address'] if 'address' in data else ''
         isEmployee = bool(data['isEmployee']) if 'isEmployee' in data else False
+        emp_id = None
 
         conn = mysql.connection
         cursor = conn.cursor(dictionary=True, buffered=True)
@@ -48,11 +49,13 @@ def signup():
                 return make_response("Signup Failed", 401)
             else:
                 role = row['role']
+                emp_id = row['emp_id']
                 print('Employee logged in with role ' + role)
 
-        insert_data = "Insert into User (role,email,password,fullname,phone,address) values (%s,%s,%s,%s,%s,%s);"
+        insert_data = "Insert into User (role,email,password,fullname,phone,address,emp_id) values (%s,%s,%s,%s,%s," \
+                      "%s,%s); "
         cursor.execute(insert_data,
-                       (role, email, generate_password_hash(password, method='sha256'), fullname, phone, address))
+                       (role, email, generate_password_hash(password, method='sha256'), fullname, phone, address, emp_id))
         cursor.execute(select_one, (email,))
         current_app.logger.info("Creating user. User name is %s and role is %s", fullname, role)
         row = cursor.fetchone()

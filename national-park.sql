@@ -247,6 +247,8 @@ create table User (
   fullname 	varchar(100),
   phone 	numeric(10),
   address 	varchar(100),
+  emp_id 	varchar(10),
+  foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade,
   primary key (id)
 );
 
