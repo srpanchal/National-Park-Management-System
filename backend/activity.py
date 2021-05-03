@@ -30,6 +30,7 @@ def getCamping():
     except Exception as e:
         print(e)
 
+
 def getHiking():
     get_all_hiking = "SELECT * FROM Hiking"
     try:
