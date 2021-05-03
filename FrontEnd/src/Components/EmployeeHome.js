@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
-import { Button, Col, Container, Form, Nav, Navbar, Row } from 'react-bootstrap';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import { isAdmin } from '../Utils/helper';
 
 import Accounting from './Accounting';
 import Inventory from './Inventory';
+import CreateEmployee from './CreateEmployee';
 
 export default function Login() {
   let { path, url } = useRouteMatch();
@@ -11,10 +13,11 @@ export default function Login() {
   return (
     <Container>
       <Navbar bg="primary" variant="dark">
-      <Navbar.Brand href="/employee-home">Nation Park</Navbar.Brand>
+      <Navbar.Brand href="/">Nation Park</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href={`${url}/inventory`}>Inventory</Nav.Link>
         <Nav.Link href={`${url}/account`}>Account</Nav.Link>
+        {isAdmin() && (<Nav.Link href={`${url}/create-employee`}>Add Employee</Nav.Link>)}
       </Nav>
       </Navbar>
       <Switch>
@@ -24,6 +27,11 @@ export default function Login() {
         <Route path={`${path}/account`}>
           <Accounting />
         </Route>
+        {isAdmin() && (
+          <Route path={`${path}/create-employee`}>
+            <CreateEmployee />
+          </Route>
+        )}
       </Switch>
     </Container>
   );

@@ -3,7 +3,9 @@ import NavigationBar from "./NavigationBar";
 import { Table } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { APIConstants } from "../Util/APIConstants";
+import { APIConstants } from "../Utils/APIConstants";
+import {withRouter} from "react-router-dom";
+import { getUser } from '../Utils/helper';
 
 
 class HikingBooking extends React.Component {
@@ -17,7 +19,7 @@ class HikingBooking extends React.Component {
             ],
             selectedHike: '',
             selectedDate: '',
-            tourist_id: 124474 
+            tourist_id: getUser().id 
 
         };
     }
@@ -74,6 +76,7 @@ class HikingBooking extends React.Component {
 
             if(response){
                 alert('Ticket Booked');
+                this.props.history.push("/touristBooking");
             }
             else {
                 alert('failed ! try again');
@@ -104,6 +107,7 @@ class HikingBooking extends React.Component {
                             <th> Duration</th>
                             <th>Distance</th>
                             <th> Difficulty Level</th>
+                            <th>Select</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -113,6 +117,7 @@ class HikingBooking extends React.Component {
                                     <td>{h.trail}</td>
                                     <td>{h.elevation}</td>
                                     <td>{h.duration}</td>
+                                    <td>{h.distance}</td>
                                     <td>{h.difficulty_level}</td>
                                     <td> <input type="radio" name="hiking" value={h.actv_id} onChange={this.HandleSelection} /> </td>
                                 </tr>
@@ -142,4 +147,4 @@ class HikingBooking extends React.Component {
     }
 }
 
-export default HikingBooking;
+export default withRouter(HikingBooking);
