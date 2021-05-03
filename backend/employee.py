@@ -50,18 +50,20 @@ def employees():
     if request.method == 'POST':
         try:
             body = request.json
-            post_employee = """INSERT INTO employee (emp_id,salary,emp_name, role,emp_dept,age, gender)
-            VALUES ( %s, %s, %s, %s, %s, %s, %s )"""
+            post_employee = """INSERT INTO Employee (emp_id,salary,emp_name,role,emp_dept,age,email,gender)
+            VALUES ( %s, %s, %s, %s, %s, %s, %s, %s )"""
             emp_id = random.randint(100, 999999)
             data = (
                 emp_id, body['salary'], body['emp_name'], body['role'], body['emp_dept'],
                 body['age'],
+                body['email'],
+                # body['phone_no'],
                 body['gender'])
             role = body['role']
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_employee, data)
-            current_app.logger.info("Inserting employee %s. Role is %s", body['emp_name'],role)
+            current_app.logger.info("Inserting employee %s. Role is %s", body['emp_name'], role)
             if role == "Ticket issuer":
                 cursor.execute(insert_into_ticket_issuer, (emp_id,))
             elif role == "Tour guide":
@@ -88,7 +90,7 @@ def employees():
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(delete_employee, data)
-            current_app.logger.info("Deleting employee %s",request.args.get('emp_id'))
+            current_app.logger.info("Deleting employee %s", request.args.get('emp_id'))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
@@ -100,10 +102,10 @@ def employees():
     if request.method == 'PUT':
         try:
             body = request.json
-            update_employee = """UPDATE employee set emp_id = %s,salary = %s,emp_name= %s, role= %s,emp_dept= %s,
-            age = %s, gender = %s WHERE emp_id = %s"""
+            update_employee = """UPDATE Employee set emp_id = %s,salary = %s,emp_name= %s, role= %s,emp_dept= %s,
+            age = %s, gender = %s, email = %s WHERE emp_id = %s"""
             data = (body['emp_id'], body['salary'], body['emp_name'], body['role'], body['emp_dept'], body['age'],
-                    body['gender'], body['emp_id'])
+                    body['gender'], body['email'], body['emp_id'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(update_employee, data)
