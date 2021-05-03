@@ -7,5 +7,6 @@ export const APIConstants = {
     bookActivity: `${url}booking`,
     getTouristBookingDetails: `${url}booking`,
     getSpaciesDetails: `${url}animals`,
-    deleteSpecies: `${url}animals`
+    deleteSpecies: `${url}animals`,
+    getStats: `${url}animals-stats`
 };

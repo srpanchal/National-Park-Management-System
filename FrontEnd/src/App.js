@@ -37,9 +37,6 @@ function App() {
           <Route path="/employee-home">
             <EmployeeHome />
           </Route>
-          <Route path="/about">
-            <Home />
-          </Route>
           <Route path="/species">
             <SpeciesDetails />
           </Route>

@@ -146,24 +146,26 @@ class TouristBooking extends React.Component {
                         <tr>
                             <th>Booking date</th>
                             <th>Activity Name</th>
-                            <th>route</th>
-                            <th>cost</th>
-                            <th>Vehicle</th>
-                            <th>Status</th>
+                            <th>trail</th>
+                            <th>duration</th>
+                            <th>distance</th>
+                            <th>difficulty level</th>
+                           <th>Status</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {
                             this.state.bookings.length > 0 && this.state.bookings.map((book, index) => {
-                                if (book.actv_type === 'Tour') {
+                                if (book.actv_type === 'Hiking') {
                                     return (
                                         <tr key={index}>
                                             <td>{book.booking_date}</td>
                                             <td>{book.actv_type}</td>
-                                            <td>{book.route}</td>
-                                            <td>{book.cost}</td>
-                                            <td>{book.vehicle}</td>
+                                            <td>{book.trail}</td>
+                                            <td>{book.duration}</td>
+                                            <td>{book.distance}</td>
+                                            <td>{book.difficulty_level}</td>
                                             {book.status === 'ACTIVE' ? (<td> <Button active={false} onClick={e => this.cancelBooking(book)}>Cancel</Button></td>) : (<td>Cancelled</td>)}
                                         </tr>
                                     )

@@ -3,6 +3,7 @@ import NavigationBar from "./NavigationBar";
 import { Table, Button } from "react-bootstrap";
 import {APIConstants} from '../Utils/APIConstants';
 import { withRouter } from "react-router-dom";
+import { getUser } from '../Utils/helper';
 
 class TourBooking extends React.Component {
 
@@ -14,7 +15,7 @@ class TourBooking extends React.Component {
             ],
             selectedTour: '',
             selectedDate: '',
-            tourist_id: 124474
+            tourist_id: getUser().id
         };
     }
 

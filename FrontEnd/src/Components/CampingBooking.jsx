@@ -3,6 +3,7 @@ import NavigationBar from "../Components/NavigationBar";
 import {Table, Button} from "react-bootstrap";
 import {APIConstants} from '../Utils/APIConstants';
 import { getUser } from '../Utils/helper';
+import {withRouter} from "react-router-dom";
 
 class campingBooking extends React.Component {
 
@@ -71,6 +72,7 @@ class campingBooking extends React.Component {
 
             if(response){
                 alert('Ticket Booked');
+                this.props.history.push("/touristBooking");
             }
             else {
                 alert('failed ! try again');
@@ -134,4 +136,4 @@ class campingBooking extends React.Component {
     }
 }
 
-export default campingBooking;
+export default withRouter(campingBooking);
