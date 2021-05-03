@@ -2,16 +2,14 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { isTourist } from './Utils/helper';
+import { isTouristOrTicketIssuer } from './Utils/helper';
 
 import Login from './Components/Login';
 import SignOut from './Components/SignOut';
 import Home from './Components/Home';
 import CreateAccount from './Components/CreateAccount';
 import EmployeeHome from './Components/EmployeeHome';
-import Species from './Components/SpeciesDetails';
 import SpeciesDetails from './Components/SpeciesDetails';
-import ActivityBooking from './Components/ActivityBooking';
 import CampingBooking from './Components/CampingBooking';
 import TourBooking from './Components/TourBooking';
 import HikingBooking from './Components/HikingBooking';
@@ -27,11 +25,6 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          {/* {isTourist() && (
-            <Route exact path="/bookings">
-              <TouristBookings />
-            </Route>
-          )} */}
           <Route path="/login">
             <Login />
           </Route>
@@ -50,18 +43,22 @@ function App() {
           <Route path="/species">
             <SpeciesDetails />
           </Route>
-          <Route path="/campingBooking">
-            <CampingBooking />
-          </Route>
-          <Route path="/tourBooking">
-            <TourBooking />
-          </Route>
-          <Route path="/hikingBooking">
-            <HikingBooking />
-          </Route>
-          <Route path="/touristBooking">
-            <TouristBooking/>
-          </Route>
+          {isTouristOrTicketIssuer() && (
+            <>
+              <Route path="/campingBooking">
+                <CampingBooking />
+              </Route>
+              <Route path="/tourBooking">
+                <TourBooking />
+              </Route>
+              <Route path="/hikingBooking">
+                <HikingBooking />
+              </Route>
+              <Route path="/touristBooking">
+                <TouristBooking/>
+              </Route>
+            </>
+          )}
         </Switch>
       </BrowserRouter>
 

@@ -76,11 +76,6 @@ const AddEmployee = ({ onSubmit }) => {
           {Object.values(EMPLOYEE_ROLES).map(r => (
             <option value={r}>{r}</option>
           ))}
-          {/* <option value={EMPLOYEE_ROLES.ticketIssuer}>{EMPLOYEE_ROLES.ticketIssuer}</option>
-          <option value={EMPLOYEE_ROLES.tourGuide}>{EMPLOYEE_ROLES.tourGuide}</option>
-          <option value={EMPLOYEE_ROLES.forestOfficer}>{EMPLOYEE_ROLES.forestOfficer}</option>
-          <option value={EMPLOYEE_ROLES.accountClerk}>{EMPLOYEE_ROLES.accountClerk}</option>
-          <option value={EMPLOYEE_ROLES.vetDoc}>{EMPLOYEE_ROLES.vetDoc}</option> */}
         </Form.Control>
       </Form.Group>
       {role === EMPLOYEE_ROLES.forestOfficer && (
@@ -130,11 +125,6 @@ const AddEmployee = ({ onSubmit }) => {
               {Object.values(VETERINARY_DOC_SPECIALITIES).map(vs => (
                 <option value={vs}>{vs}</option>
               ))}
-              {/* <option value="Ticket Issuer">Ticket Issuer</option>
-              <option value="Tour Guide">Tour Guide</option>
-              <option value="Forest Officer">Forest Officer</option>
-              <option value="Accounts Clerk">Accounts Clerk</option>
-              <option value="Veterinary Doctor">Veterinary Doctor</option> */}
             </Form.Control>
           </Form.Group>
           <Form.Group>

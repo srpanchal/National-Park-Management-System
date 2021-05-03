@@ -4,6 +4,7 @@ import { Table } from "react-bootstrap";
 import { APIConstants } from '../Utils/APIConstants';
 import { Button } from 'react-bootstrap';
 import { Modal, Form } from 'react-bootstrap';
+import { isTourist } from '../Utils/helper';
 
 class SpeciesDetails extends React.Component {
 
@@ -85,17 +86,13 @@ class SpeciesDetails extends React.Component {
         })
     }
 
-    handleChange = (key, value) => {    
+    handleChange = (key, value) => {
         const newSpecies = { ...this.state.newSpecies };
         newSpecies[key] = value;
         console.log(newSpecies);
         this.setState({
             newSpecies: newSpecies
         });
-
-
-
-
     }
 
     handleSubmit = (e) => {
@@ -132,16 +129,17 @@ class SpeciesDetails extends React.Component {
                 <h3> All Species</h3>
 
                 <div style={{ padding: '5%' }}>
-
-
-
-                    <Button onClick={this.handleAdd} >Add</Button>
-
-                    <Button onClick={this.handleDelete} disabled={this.state.disableDelete}>Delete </Button>
-
-
-
-
+                    {!isTourist() && (
+                        <>
+                            <Button onClick={this.handleAdd} >Add</Button>
+                            <Button
+                                onClick={this.handleDelete}
+                                disabled={this.state.disableDelete}
+                            >
+                                Delete
+                            </Button>
+                        </>
+                    )}
                     <Table striped bordered hover>
                         <thead>
                             <tr>
@@ -151,7 +149,7 @@ class SpeciesDetails extends React.Component {
                                 <th>description</th>
                                 <th>gender</th>
                                 <th>category</th>
-                                <th>select</th>
+                                {!isTourist() && (<th>select</th>)}
                             </tr>
                         </thead>
                         <tbody>
@@ -166,7 +164,16 @@ class SpeciesDetails extends React.Component {
                                         <td>{s.description}</td>
                                         <td>{s.gender}</td>
                                         <td>{s.category}</td>
-                                        <td> <input type="radio" name="species" value={s.species_id} onChange={this.HandleSelection} /> </td>
+                                        {!isTourist() && (
+                                            <td>
+                                                <input
+                                                    type="radio"
+                                                    name="species"
+                                                    value={s.species_id}
+                                                    onChange={this.HandleSelection}
+                                                />
+                                            </td>
+                                        )}
 
                                     </tr>
                                 ))}

@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {Container} from "react-bootstrap";
-import { getUser } from '../Utils/helper';
+import { getUser, isTouristOrTicketIssuer } from '../Utils/helper';
 
 class Activities extends React.Component {
     render() {
@@ -27,11 +27,13 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer>
-                            <Link to={`${user ? '/campingBooking' : '/login'}`}>
-                                Book Now
-                            </Link>
-                        </Card.Footer>
+                        {isTouristOrTicketIssuer() && (
+                            <Card.Footer>
+                                <Link to={`${user ? '/campingBooking' : '/login'}`}>
+                                    Book Now
+                                </Link>
+                            </Card.Footer>
+                        )}
                     </Card>
                     </Col>
                     <Col s={4}>
@@ -49,11 +51,13 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer>
-                            <Link to={`${user ? '/hikingBooking' : '/login'}`}>
-                                Book Now
-                            </Link>
-                        </Card.Footer>
+                        {isTouristOrTicketIssuer() && (
+                            <Card.Footer>
+                                <Link to={`${user ? '/hikingBooking' : '/login'}`}>
+                                    Book Now
+                                </Link>
+                            </Card.Footer>
+                        )}
                     </Card>
                     </Col>
                     <Col s={4}>
@@ -68,11 +72,13 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        <Card.Footer>
-                            <Link to={`${user ? '/tourBooking' : '/login'}`}>
-                                Book Now
-                            </Link>
-                        </Card.Footer>
+                        {isTouristOrTicketIssuer() && (
+                            <Card.Footer>
+                                <Link to={`${user ? '/tourBooking' : '/login'}`}>
+                                    Book Now
+                                </Link>
+                            </Card.Footer>
+                        )}
 
                     </Card>
                     </Col>

@@ -1,4 +1,4 @@
-import { USER_ROLES } from './constants';
+import { EMPLOYEE_ROLES, USER_ROLES } from './constants';
 
 export const storeUser = (data) => {
   localStorage.setItem("user", JSON.stringify(data));
@@ -29,3 +29,11 @@ export const isTourist = () => {
 
   return user && user.role === USER_ROLES.tourist;
 }
+
+export const isTicketIssuer = () => {
+  const user = getUser();
+
+  return user && user.role === EMPLOYEE_ROLES.ticketIssuer;
+}
+
+export const isTouristOrTicketIssuer = () => isTourist() || isTicketIssuer();
