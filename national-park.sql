@@ -1,3 +1,5 @@
+-- SJSU CMPE 138Spring2021TEAM8
+
 drop database if exists national_park;
 create database national_park;
 use national_park;

@@ -1,3 +1,5 @@
+-- SJSU CMPE 138Spring2021TEAM8
+
 INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('1', 'Tour');
 INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('11', 'Hiking');
 INSERT INTO `Activity` (`actv_id`, `actv_type`) VALUES ('12', 'Tour');
