@@ -1,3 +1,4 @@
+# SJSU CMPE 138Spring2021TEAM8
 import simplejson as json
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL

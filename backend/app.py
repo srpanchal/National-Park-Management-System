@@ -1,3 +1,4 @@
+# SJSU CMPE 138Spring2021TEAM8
 from flask_mysql_connector import MySQL
 from flask import Flask
 import config
