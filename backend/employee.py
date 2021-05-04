@@ -23,6 +23,9 @@ insert_into_forest_officer = """INSERT INTO Forest_Officer (emp_id,post)
 insert_into_doctor = """INSERT INTO Veterinary_Doctor (emp_id,vet_type,speciality, degree)
             VALUES ( %s, %s, %s, %s)"""
 
+insert_into_dept_mgr = """INSERT INTO Department_Manager (emp_id)
+            VALUES ( %s )"""
+
 
 @emp_api.route('/employees', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def employees():
@@ -74,6 +77,8 @@ def employees():
                 cursor.execute(insert_into_accounts_clerk, (emp_id,))
             elif role == "Veterinary doctor":
                 cursor.execute(insert_into_doctor, (emp_id, body['vet_type'], body['speciality'], body['degree']))
+            elif role == "Department manager":
+                cursor.execute(insert_into_dept_mgr, (emp_id,))
             conn.commit()
             return make_response("true", 200)
         except Exception as e:
