@@ -2,7 +2,7 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { isTouristOrTicketIssuer } from './Utils/helper';
+import { canIssueOrBookTicket } from './Utils/helper';
 
 import Login from './Components/Login';
 import SignOut from './Components/SignOut';
@@ -40,7 +40,7 @@ function App() {
           <Route path="/species">
             <SpeciesDetails />
           </Route>
-          {isTouristOrTicketIssuer() && (
+          {canIssueOrBookTicket() && (
             <>
               <Route path="/campingBooking">
                 <CampingBooking />

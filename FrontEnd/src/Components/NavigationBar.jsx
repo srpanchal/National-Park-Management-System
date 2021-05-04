@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar} from "react-bootstrap";
 import { Nav} from "react-bootstrap";
-import { getUser, isTourist } from '../Utils/helper';
+import { getUser, canIssueOrBookTicket, isTourist } from '../Utils/helper';
 
 
 class NavigationBar extends React.Component {
@@ -11,18 +11,24 @@ class NavigationBar extends React.Component {
 
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">National Park</Navbar.Brand>
+      <Navbar.Brand href="/">National Park</Navbar.Brand>
     
       <Navbar.Collapse className="justify-content-end">    
         <Nav>
         <Nav> <span style={{paddingRight: '10px'}}><Link to="/">Home</Link></span></Nav>
-        
-        {isTourist() && (
+        {canIssueOrBookTicket() && (
           <Nav>
             <span style={{paddingRight: '10px'}}>
               <Link to="/touristBooking">
                 My Bookings
               </Link>
+            </span>
+          </Nav>
+        )}
+        {user && !isTourist() && (
+          <Nav>
+            <span style={{paddingRight: '10px'}}>
+              <Link to="/employee-home">Employee Home</Link>
             </span>
           </Nav>
         )}

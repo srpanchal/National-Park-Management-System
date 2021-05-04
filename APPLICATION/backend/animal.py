@@ -3,6 +3,7 @@ import simplejson as json
 from flask import Flask, make_response, jsonify, Blueprint, request
 from flask_mysql_connector import MySQL
 from flask import current_app
+import random
 mysql = MySQL()
 
 animals_api = Blueprint('animals_api', __name__)
@@ -37,8 +38,9 @@ def animals():
             body = request.json
             post_animal = """INSERT INTO Species (species_id,name,age,description,gender,category)
             VALUES ( %s, %s, %s, %s, %s, %s )"""
+            species_id =random.randint(100, 999999)
             data = (
-                body['species_id'], body['name'], body['age'], body['description'], body['gender'], body['category'])
+                species_id, body['name'], body['age'], body['description'], body['gender'], body['category'])
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_animal, data)

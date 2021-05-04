@@ -12,7 +12,7 @@ const AddEmployee = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Male");
   // const [dept, setDept] = useState("");
   const [salary, setSalary] = useState("");
   const [phone, setPhone] = useState("");
@@ -29,15 +29,31 @@ const AddEmployee = ({ onSubmit }) => {
     event.stopPropagation();
     setValidated(true);
     if (form.checkValidity()) {
-      onSubmit({
+      let data = {
+        email,
         emp_name: name,
         role,
-        emp_dept: "",
+        emp_dept: "Dept",
         age,
         gender,
         salary,
         phone
-      });
+      };
+
+      if (role === EMPLOYEE_ROLES.forestOfficer) {
+        data.post = forestOfficerPost;
+      }
+
+      if (role === EMPLOYEE_ROLES.vetDoc) {
+        data = {
+          ...data,
+          vet_type: vetType,
+          speciality: vetSpeciality,
+          degree: vetDegree
+        };
+      }
+
+      onSubmit(data);
     }
   };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Col, Row, Container } from 'react-bootstrap';
+import { getUser } from '../../Utils/helper';
 
 const AddInventory = ({ onSubmit }) => {
   const [name, setName] = useState("");
@@ -19,7 +20,8 @@ const AddInventory = ({ onSubmit }) => {
         name,
         category,
         quantity,
-        cost_per_item: cost
+        cost_per_item: cost,
+        emp_id: getUser().emp_id
       });
     }
   };

@@ -12,6 +12,7 @@ export default function CreateAccount() {
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isEmployee, setIsEmployee] = useState(true);
   const [validated, setValidated] = useState(false);
 
   const onSubmit = (data) => {
@@ -22,14 +23,23 @@ export default function CreateAccount() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok)
+          return res.json();
+
+        return null;
+      })
       .then(json => {
-        storeUser(json);
+        if (json) {
+          storeUser(json);
         
-        if (json.role === USER_ROLES.tourist) {
-          history.replace('/');
+          if (json.role === USER_ROLES.tourist) {
+            history.replace('/');
+          } else {
+            history.replace('/employee-home');
+          }
         } else {
-          history.replace('/employee-home');
+          alert('Account Creation Failed!!');
         }
       });
   }
@@ -45,8 +55,9 @@ export default function CreateAccount() {
         email,
         password,
         fullname: name,
-        phone,
-        address
+        phone: phone || "",
+        address,
+        isEmployee
       });
     }
   };
@@ -123,6 +134,14 @@ export default function CreateAccount() {
                 placeholder="Confirm password"
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Check
+                type="checkbox"
+                label="Is Employee?"
+                checked={isEmployee}
+                onChange={e => setIsEmployee(e.target.checked)}
               />
             </Form.Group>
             <Button variant="primary" type="submit">

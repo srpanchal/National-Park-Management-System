@@ -55,7 +55,7 @@ def inventory():
             data = (inv_id, body['name'], body['category'], body['quantity'], body['cost_per_item'])
             post_mge_inv = """INSERT INTO Manage_Inventory (emp_id,inv_id)
                         VALUES ( %s, %s)"""
-            data_mge = (body['emp_id'], body['inv_id'])
+            data_mge = (body['emp_id'],inv_id)
             conn = mysql.connection
             cursor = conn.cursor(dictionary=True)
             cursor.execute(post_inventory, data)
