@@ -24,12 +24,21 @@ export default function Inventory() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok)
+          return res.json();
+
+        return null;
+      })
       .then(json => {
-        if (json === true) {
-          setFetchInventoryTrigger(fetchInventoryTrigger + 1);
+        if (json !== null) {
+          if (json === true) {
+            setFetchInventoryTrigger(fetchInventoryTrigger + 1);
+          }
+          setShowAddForm(false);
+        } else {
+          alert('Inventroy Addition Failed!!');
         }
-        setShowAddForm(false);
       });
   }
 
@@ -50,6 +59,7 @@ export default function Inventory() {
           <th>Category</th>
           <th>Quantity</th>
           <th>Cost/Item</th>
+          <th>Added By</th>
         </tr>
       </thead>
       <tbody>
@@ -60,6 +70,7 @@ export default function Inventory() {
             <td>{a.category}</td>
             <td>{a.quantity}</td>
             <td>{a.cost_per_item}</td>
+            <td>{a.emp_name}</td>
           </tr>
         ))}
       </tbody>

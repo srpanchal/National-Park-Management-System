@@ -30,10 +30,22 @@ export const isTourist = () => {
   return user && user.role === USER_ROLES.tourist;
 }
 
+export const isAccountClerk = () => {
+  const user = getUser();
+
+  return user && user.role === EMPLOYEE_ROLES.accountClerk;
+}
+
+export const isDepartmentManager = () => {
+  const user = getUser();
+
+  return user && user.role === EMPLOYEE_ROLES.deptManager;
+}
+
 export const isTicketIssuer = () => {
   const user = getUser();
 
   return user && user.role === EMPLOYEE_ROLES.ticketIssuer;
 }
 
-export const isTouristOrTicketIssuer = () => isTourist() || isTicketIssuer();
+export const canIssueOrBookTicket = () => isTourist() || isTicketIssuer() || isAdmin();

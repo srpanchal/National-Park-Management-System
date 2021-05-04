@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {Container} from "react-bootstrap";
-import { getUser, isTouristOrTicketIssuer } from '../Utils/helper';
+import { getUser, canIssueOrBookTicket } from '../Utils/helper';
 
 class Activities extends React.Component {
     render() {
@@ -27,7 +27,7 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        {isTouristOrTicketIssuer() && (
+                        {(canIssueOrBookTicket() || !user) && (
                             <Card.Footer>
                                 <Link to={`${user ? '/campingBooking' : '/login'}`}>
                                     Book Now
@@ -51,7 +51,7 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        {isTouristOrTicketIssuer() && (
+                        {(canIssueOrBookTicket() || !user) && (
                             <Card.Footer>
                                 <Link to={`${user ? '/hikingBooking' : '/login'}`}>
                                     Book Now
@@ -72,7 +72,7 @@ class Activities extends React.Component {
                             </Card.Text>
 
                         </Card.Body>
-                        {isTouristOrTicketIssuer() && (
+                        {(canIssueOrBookTicket() || !user) && (
                             <Card.Footer>
                                 <Link to={`${user ? '/tourBooking' : '/login'}`}>
                                     Book Now

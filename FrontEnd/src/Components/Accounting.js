@@ -25,12 +25,21 @@ export default function Accounting() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok)
+          return res.json();
+
+        return null;
+      })
       .then(json => {
-        if (json === true) {
-          setFetchAccountTrigger(fetchAccountTrigger + 1);
+        if (json !== null) {
+          if (json === true) {
+            setFetchAccountTrigger(fetchAccountTrigger + 1);
+          }
+          setShowAddForm(false);
+        } else {
+          alert('Adding transaction failed!!');
         }
-        setShowAddForm(false);
       });
   }
 
@@ -51,6 +60,7 @@ export default function Accounting() {
           <th>Type</th>
           <th>Amount</th>
           <th>Details</th>
+          <th>Added By</th>
         </tr>
       </thead>
       <tbody>
@@ -61,6 +71,7 @@ export default function Accounting() {
             <td>{a.type}</td>
             <td>{a.amount}</td>
             <td>{a.details}</td>
+            <td>{a.emp_name}</td>
           </tr>
         ))}
       </tbody>

@@ -8,6 +8,7 @@ export default function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoginInValid, setIsLoginInValid] = useState(false);
   const [validated, setValidated] = useState(false);
 
   const onSubmit = (data) => {
@@ -18,14 +19,23 @@ export default function Login() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+
+        setIsLoginInValid(true);
+        return null;
+      })
       .then(json => {
-        storeUser(json);
+        if (json) {
+          storeUser(json);
         
-        if (json.role === USER_ROLES.tourist) {
-          history.replace('/');
-        } else {
-          history.replace('/employee-home');
+          if (json.role === USER_ROLES.tourist) {
+            history.replace('/');
+          } else {
+            history.replace('/employee-home');
+          }
         }
       });
   }
@@ -75,6 +85,13 @@ export default function Login() {
                 onChange={e => setPassword(e.target.value)}
               />
             </Form.Group>
+            <Row className="mb-3" hidden={!isLoginInValid}>
+              <Col>
+                <Form.Text className="text-danger">
+                  Invalid Username/Password
+                </Form.Text>
+              </Col>
+            </Row>
             <Row>
               <Col>
                 <Button className="align-self-start" variant="primary" type="submit">

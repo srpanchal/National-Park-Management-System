@@ -4,7 +4,7 @@ import { Container, Table } from "react-bootstrap";
 import { APIConstants } from '../Utils/APIConstants';
 import { Button } from 'react-bootstrap';
 import { Modal, Form, Col, Row, Card, Alert } from 'react-bootstrap';
-import { isTourist } from '../Utils/helper';
+import { getUser, isTourist } from '../Utils/helper';
 class SpeciesDetails extends React.Component {
 
     constructor(props) {
@@ -17,7 +17,6 @@ class SpeciesDetails extends React.Component {
             selectedSpecies_Id: '',
             showModal: false,
             newSpecies: {
-                species_id: '',
                 name: '',
                 age: 0,
                 description: '',
@@ -164,7 +163,9 @@ class SpeciesDetails extends React.Component {
                 <NavigationBar />
                 <Container>
 
-
+                    <Row className="mt-5 mb-3">
+                        <h2> All Species</h2>
+                    </Row>
                     <Row>
 
                         <Col sm={6}>
@@ -175,9 +176,10 @@ class SpeciesDetails extends React.Component {
                         <Col sm={6}>
 
 
-                            <Alert variant='primary'>  Total Number of Male Species {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[0].count} and
-Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[1].count}
-
+                            <Alert variant='primary'>
+                                Total Number of Male Species: {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[0].count}
+                                <br />
+                                Total Number of Female Species: {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[1].count}
                             </Alert>
 
                         </Col>
@@ -280,12 +282,9 @@ Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this
 
                     </Row>
 
-
-                    <h3> All Species</h3>
-
                     <div style={{ padding: '5%' }}>
 
-                    {!isTourist() && (
+                    {getUser() && !isTourist() && (
                         <>
                             <Button onClick={this.handleAdd} >Add</Button>
                             <Button
@@ -305,7 +304,7 @@ Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this
                                     <th>description</th>
                                     <th>gender</th>
                                     <th>category</th>
-                                    {!isTourist() && (<th>select</th>)}
+                                    {getUser() && !isTourist() && (<th>select</th>)}
                                 </tr>
                             </thead>
                             <tbody>
@@ -320,16 +319,16 @@ Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this
                                             <td>{s.description}</td>
                                             <td>{s.gender}</td>
                                             <td>{s.category}</td>
-                                            {!isTourist() && (
-                                            <td>
-                                                <input
-                                                    type="radio"
-                                                    name="species"
-                                                    value={s.species_id}
-                                                    onChange={this.HandleSelection}
-                                                />
-                                            </td>
-                                        )}
+                                            {getUser() && !isTourist() && (
+                                                <td>
+                                                    <input
+                                                        type="radio"
+                                                        name="species"
+                                                        value={s.species_id}
+                                                        onChange={this.HandleSelection}
+                                                    />
+                                                </td>
+                                            )}
                                         </tr>
                                     ))}
 
@@ -352,8 +351,6 @@ Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this
                         </Modal.Header>
                         <Modal.Body>
                             <Form>
-                                <Form.Label>Species ID</Form.Label>
-                                <Form.Control type="text" placeholder="enter here" onChange={e => this.handleChange('species_id', e.target.value)} />
                                 <Form.Label>name</Form.Label>
                                 <Form.Control type="text" placeholder="enter here" onChange={(e => this.handleChange('name', e.target.value))} />
                                 <Form.Label>Age</Form.Label>
