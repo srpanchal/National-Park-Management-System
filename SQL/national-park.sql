@@ -13,8 +13,7 @@ create table Employee (
 	emp_dept	varchar(20),
 	age			numeric(2),
 	gender		varchar(10),
-	email 		varchar(50),
-	phone_no 	numeric(10),
+	email 		varchar(50) not null,
 	primary key (emp_id)
 	);
 
@@ -128,9 +127,6 @@ create table Tourist_Guide (
 	);
 
 
-------------------------------------
-
-
 create table Department_Manager (
 	emp_id		varchar(10),
 	primary key (emp_id),
@@ -216,8 +212,8 @@ create table Document_Species (
 
 create table Veterinary_Doctor (
 	emp_id		varchar(10),
-	vet_type	varchar(20),
-	speciality	varchar(20),
+	vet_type	varchar(30),
+	speciality	varchar(30),
 	degree		varchar(20),
 	primary key (emp_id),
 	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
@@ -252,16 +248,3 @@ create table User (
   foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade,
   primary key (id)
 );
-
-
--- use national_park;
--- ALTER TABLE Employee
--- ADD COLUMN email VARCHAR(50);
-
--- SET SQL_SAFE_UPDATES = 0;
--- UPDATE Employee
--- SET email = 'default@email.com';
--- SET SQL_SAFE_UPDATES = 1;
-
--- ALTER TABLE Employee
--- MODIFY COLUMN email VARCHAR(50) NOT NULL;
