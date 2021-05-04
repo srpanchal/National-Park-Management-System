@@ -1,0 +1,1115 @@
+[2021-05-03 01:53:13 +0000] [37743] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 01:53:13 +0000] [37743] [INFO] Listening at: http://127.0.0.1:8000 (37743)
+[2021-05-03 01:53:13 +0000] [37743] [INFO] Using worker: sync
+[2021-05-03 01:53:13 +0000] [37755] [INFO] Booting worker with pid: 37755
+[2021-05-03 01:55:02 +0000] [37743] [INFO] Handling signal: term
+[2021-05-03 01:55:02 +0000] [37755] [INFO] Worker exiting (pid: 37755)
+[2021-05-03 01:55:02 +0000] [37743] [WARNING] Worker with pid 37755 was terminated due to signal 15
+[2021-05-03 01:55:02 +0000] [37743] [INFO] Shutting down: Master
+[2021-05-03 01:55:02 +0000] [37829] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 01:55:02 +0000] [37829] [INFO] Listening at: http://127.0.0.1:8000 (37829)
+[2021-05-03 01:55:02 +0000] [37829] [INFO] Using worker: sync
+[2021-05-03 01:55:02 +0000] [37841] [INFO] Booting worker with pid: 37841
+[2021-05-03 01:56:46,574] ERROR in app: Exception on /account [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/account.py", line 60, in account
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 02:50:02 +0000] [37829] [INFO] Handling signal: term
+[2021-05-03 02:50:02 +0000] [37841] [INFO] Worker exiting (pid: 37841)
+[2021-05-03 02:50:02 +0000] [37829] [INFO] Shutting down: Master
+[2021-05-03 02:50:02 +0000] [38338] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 02:50:02 +0000] [38338] [INFO] Listening at: http://127.0.0.1:8000 (38338)
+[2021-05-03 02:50:02 +0000] [38338] [INFO] Using worker: sync
+[2021-05-03 02:50:02 +0000] [38350] [INFO] Booting worker with pid: 38350
+[2021-05-03 03:19:05 +0000] [38338] [INFO] Handling signal: term
+[2021-05-03 03:19:05 +0000] [38350] [INFO] Worker exiting (pid: 38350)
+[2021-05-03 03:19:05 +0000] [38338] [WARNING] Worker with pid 38350 was terminated due to signal 15
+[2021-05-03 03:19:06 +0000] [38338] [INFO] Shutting down: Master
+[2021-05-03 03:19:06 +0000] [38475] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 03:19:06 +0000] [38475] [INFO] Listening at: http://127.0.0.1:8000 (38475)
+[2021-05-03 03:19:06 +0000] [38475] [INFO] Using worker: sync
+[2021-05-03 03:19:06 +0000] [38488] [INFO] Booting worker with pid: 38488
+[2021-05-03 03:21:06,757] ERROR in activity_booking: 1062 (23000): Duplicate entry '124474-23-2021-05-23 00:00:00' for key 'Activity_Booking.PRIMARY'
+[2021-05-03 03:31:54,485] ERROR in login: 1062 (23000): Duplicate entry '2' for key 'Tourist.PRIMARY'
+[2021-05-03 03:34:08 +0000] [38475] [INFO] Handling signal: term
+[2021-05-03 03:34:08 +0000] [38488] [INFO] Worker exiting (pid: 38488)
+[2021-05-03 03:34:08 +0000] [38475] [WARNING] Worker with pid 38488 was terminated due to signal 15
+[2021-05-03 03:34:08 +0000] [38475] [INFO] Shutting down: Master
+[2021-05-03 03:34:08 +0000] [38534] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 03:34:08 +0000] [38534] [INFO] Listening at: http://127.0.0.1:8000 (38534)
+[2021-05-03 03:34:08 +0000] [38534] [INFO] Using worker: sync
+[2021-05-03 03:34:08 +0000] [38547] [INFO] Booting worker with pid: 38547
+[2021-05-03 03:37:28,555] ERROR in login: Login failed
+[2021-05-03 04:26:29 +0000] [38534] [INFO] Handling signal: term
+[2021-05-03 04:26:29 +0000] [38547] [INFO] Worker exiting (pid: 38547)
+[2021-05-03 04:26:29 +0000] [38534] [WARNING] Worker with pid 38547 was terminated due to signal 15
+[2021-05-03 04:26:29 +0000] [38534] [INFO] Shutting down: Master
+[2021-05-03 04:26:29 +0000] [38689] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 04:26:29 +0000] [38689] [INFO] Listening at: http://127.0.0.1:8000 (38689)
+[2021-05-03 04:26:29 +0000] [38689] [INFO] Using worker: sync
+[2021-05-03 04:26:29 +0000] [38702] [INFO] Booting worker with pid: 38702
+[2021-05-03 04:26:38 +0000] [38689] [INFO] Handling signal: term
+[2021-05-03 04:26:38 +0000] [38702] [INFO] Worker exiting (pid: 38702)
+[2021-05-03 04:26:38 +0000] [38689] [WARNING] Worker with pid 38702 was terminated due to signal 15
+[2021-05-03 04:26:38 +0000] [38689] [INFO] Shutting down: Master
+[2021-05-03 04:26:38 +0000] [38736] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 04:26:38 +0000] [38736] [INFO] Listening at: http://127.0.0.1:8000 (38736)
+[2021-05-03 04:26:38 +0000] [38736] [INFO] Using worker: sync
+[2021-05-03 04:26:38 +0000] [38749] [INFO] Booting worker with pid: 38749
+[2021-05-03 04:27:26 +0000] [38749] [INFO] User saurabh1221q@gmail.com is logging in
+[2021-05-03 04:27:26 +0000] [38749] [ERROR] Login failed
+[2021-05-03 04:27:51 +0000] [38749] [ERROR] 'name'
+[2021-05-03 04:27:51 +0000] [38749] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 04:27:59 +0000] [38749] [ERROR] 'name'
+[2021-05-03 04:27:59 +0000] [38749] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 04:28:18 +0000] [38749] [INFO] Fetching all inventories
+[2021-05-03 04:28:18 +0000] [38749] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 04:29:22 +0000] [38749] [INFO] Fetching all inventories
+[2021-05-03 04:29:22 +0000] [38749] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 05:07:12 +0000] [38736] [INFO] Handling signal: term
+[2021-05-03 05:07:12 +0000] [38749] [INFO] Worker exiting (pid: 38749)
+[2021-05-03 05:07:12 +0000] [38736] [WARNING] Worker with pid 38749 was terminated due to signal 15
+[2021-05-03 05:07:12 +0000] [38736] [INFO] Shutting down: Master
+[2021-05-03 05:07:12 +0000] [38856] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 05:07:12 +0000] [38856] [INFO] Listening at: http://127.0.0.1:8000 (38856)
+[2021-05-03 05:07:12 +0000] [38856] [INFO] Using worker: sync
+[2021-05-03 05:07:12 +0000] [38869] [INFO] Booting worker with pid: 38869
+[2021-05-03 06:02:55 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:02:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:26:09 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:26:17 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:26:35 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:26:38 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:26:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:26:53 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:27:06 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:27:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:27:14 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:27:28 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:27:33 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:27:39 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:28:04 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:28:10 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:29:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:29:11 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:29:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:30:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:30:16 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:30:33 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:30:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:33:15 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:33:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:35:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:35:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:36:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 06:36:14 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:36:19 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:36:25 +0000] [38869] [ERROR] 1062 (23000): Duplicate entry '124474-22-2021-05-29 00:00:00' for key 'Activity_Booking.PRIMARY'
+[2021-05-03 06:36:32 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 06:36:37 +0000] [38869] [ERROR] 1062 (23000): Duplicate entry '124474-3-2021-05-21 00:00:00' for key 'Activity_Booking.PRIMARY'
+[2021-05-03 06:36:40 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:36:45 +0000] [38869] [INFO] Delete booking for 1,6,2021-05-20 00:00:00
+[2021-05-03 06:36:45 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:36:47 +0000] [38869] [INFO] Delete booking for 1,14,2021-05-28 00:00:00
+[2021-05-03 06:36:47 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:37:01 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:37:32 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:37:43 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 06:40:32 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 06:42:13 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 06:42:34 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 06:42:40 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 06:42:53 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:43:04 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:43:13 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:44:36 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:44:54 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:45:17 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:47:02 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:47:22 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:49:15 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:49:15 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:49:45 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:50:47 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:50:57 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:51:14 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:52:32 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:52:36 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:52:40 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:52:48 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 06:52:54 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 06:53:03 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:53:51 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:53:55 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:02 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:10 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:17 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:20 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:24 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:35 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:40 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:43 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:45 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:48 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:51 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:54:57 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:00 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:15 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:19 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:31 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:33 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:36 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 06:55:50 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 07:06:27 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 07:07:11 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 07:08:33 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 07:08:37 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 07:08:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:10:20 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:10:31 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:10:38 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:12:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:12:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:20 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:22 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:26 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:55 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:13:58 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:14:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:14:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:21:24 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:21:27 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:22:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:22:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:25:34 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:32 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:39 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:49 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:26:57 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:28:31 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:28:58 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:29:04 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:29:28 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:29:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:29:48 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:29:58 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:35:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:36:06 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:36:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:36:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:38:35 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:38:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:39:48 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:39:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:40:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:41:48 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:41:49 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:41:55 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:41:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:43:24 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:43:58 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:45:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:46:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:46:35 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:47:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:47:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:47:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:47:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:32 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:33 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:40 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:48:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:49:04 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:49:10 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:49:14 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:49:54 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:49:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:50:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:50:57 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:51:01 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:59:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 07:59:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:00:03 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:00:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:00:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:00:36 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:00:43 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:00:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:01:06 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:01:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:01:27 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:01:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:04:21 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:04:35 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:04:49 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:04:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:05:06 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:05:24 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:05:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:05:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:06:03 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:06:10 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:06:41 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:07:16 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:07:20 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:07:23 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:09:22 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:09:25 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:09:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:09:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:09:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:10:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:10:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:10:56 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:10:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:11:01 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:12:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:12:16 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:12:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:13:10 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:13:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:14:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:14:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:14:34 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:14:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:14:56 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:14:59 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:15:03 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:15:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:16:33 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:17:39 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:17:40 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:17:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:17:52 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:17:53 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:18:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:18:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:18:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:18:54 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:19:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:19:13 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:19:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:19:22 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:19:43 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:19:57 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:20:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:34 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:37 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:39 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:56 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:21:57 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:22:01 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:01 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:14 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:23 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:26 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:35 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:36 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:40 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:53 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:24:58 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:19 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:48 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:52 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:55 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:25:57 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:26:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:26:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:26:21 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:26:22 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:26:28 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:26:51 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:27:41 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:28:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:29:17 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:29:22 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:29:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:30:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:30:36 +0000] [38869] [ERROR] 'species_id'
+[2021-05-03 08:30:36 +0000] [38869] [ERROR] Exception on /animals [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/animal.py", line 51, in animals
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 08:30:36 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:31:07 +0000] [38869] [ERROR] 'species_id'
+[2021-05-03 08:31:07 +0000] [38869] [ERROR] Exception on /animals [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/animal.py", line 51, in animals
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 08:31:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:32:08 +0000] [38869] [ERROR] 'species_id'
+[2021-05-03 08:32:08 +0000] [38869] [ERROR] Exception on /animals [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/animal.py", line 51, in animals
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 08:32:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:33:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:34:08 +0000] [38869] [ERROR] 'species_id'
+[2021-05-03 08:34:08 +0000] [38869] [ERROR] Exception on /animals [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/animal.py", line 51, in animals
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 08:34:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:35:25 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:35:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:35:39 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:35:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:36:37 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:36:41 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:37:17 +0000] [38869] [INFO] Inserting species crow
+[2021-05-03 08:37:17 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:37:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:38:38 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:38:40 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:38:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:38:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:38:52 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:43:43 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 08:44:43 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:44:47 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:44:47 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:44:54 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:44:55 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:46:22 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:46:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:46:38 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:46:48 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:46:48 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:46:53 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:46:53 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:47:42 +0000] [38869] [INFO] Delete species 102
+[2021-05-03 08:47:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:47:50 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:47:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:47:56 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:47:56 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:48:07 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:48:08 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:48:12 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:48:12 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:48:52 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:49:19 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:49:26 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:49:26 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:49:32 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:49:32 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:50:10 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:50:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:50:21 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:50:23 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:50:27 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:50:34 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:50:34 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:51:05 +0000] [38869] [ERROR] 1062 (23000): Duplicate entry '' for key 'Species.PRIMARY'
+[2021-05-03 08:51:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:52:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:52:06 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:52:11 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:52:11 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:52:23 +0000] [38869] [INFO] Inserting species 
+[2021-05-03 08:52:23 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:52:27 +0000] [38869] [INFO] Delete species 
+[2021-05-03 08:52:27 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:55:23 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:55:34 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:11 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:12 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:29 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:38 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:46 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 08:59:53 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:00:07 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:00:17 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:00:18 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:02:52 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:02:54 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:02:55 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:03:04 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:04:45 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:09:15 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:09:16 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:10:01 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:10:05 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:11:18 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 09:11:27 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 09:11:40 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 09:11:49 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 09:11:54 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 09:12:03 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 09:12:12 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 09:12:15 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 09:12:28 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 09:12:38 +0000] [38869] [INFO] Delete booking for 1,23,2021-05-22 00:00:00
+[2021-05-03 09:12:38 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 09:15:04 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 09:15:31 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 09:15:38 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 09:15:42 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 09:23:54 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 09:28:40 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 09:29:25 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 09:29:28 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 13:38:02 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:38:15 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:39:15 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:39:19 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:39:56 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:40:35 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:42:36 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:42:50 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:43:09 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:43:19 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:43:42 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:44:06 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:44:30 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:44:37 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:44:44 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:46:23 +0000] [38869] [INFO] Fetching all species in the park
+[2021-05-03 13:46:43 +0000] [38869] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 13:46:43 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:46:56 +0000] [38869] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 13:46:56 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:52:19 +0000] [38869] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 13:52:19 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:53:23 +0000] [38869] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 13:53:23 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:53:35 +0000] [38869] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 13:53:35 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:54:05 +0000] [38869] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 13:54:05 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:54:55 +0000] [38869] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 13:54:55 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:55:47 +0000] [38869] [INFO] Creating user. User name is Vishal Shinde and role is Tourist
+[2021-05-03 13:55:47 +0000] [38869] [ERROR] 1062 (23000): Duplicate entry '1' for key 'Tourist.PRIMARY'
+[2021-05-03 13:56:06 +0000] [38869] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 13:56:06 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:56:09 +0000] [38869] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 13:58:38 +0000] [38869] [INFO] User v@sjsu.edu is logging in
+[2021-05-03 13:58:38 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:59:16 +0000] [38869] [INFO] User v@sjsu.edu is logging in
+[2021-05-03 13:59:16 +0000] [38869] [ERROR] Login failed
+[2021-05-03 13:59:32 +0000] [38869] [INFO] User v@sjsu.edu is logging in
+[2021-05-03 13:59:32 +0000] [38869] [ERROR] Login failed
+[2021-05-03 14:02:00 +0000] [38869] [INFO] User v@sjsu.edu is logging in
+[2021-05-03 14:02:00 +0000] [38869] [ERROR] Login failed
+[2021-05-03 14:03:25 +0000] [38869] [INFO] User v@sjsue.edu is logging in
+[2021-05-03 14:03:25 +0000] [38869] [ERROR] Login failed
+[2021-05-03 14:03:38 +0000] [38869] [INFO] User v@sjsue.edu is logging in
+[2021-05-03 14:03:38 +0000] [38869] [ERROR] Login failed
+[2021-05-03 14:04:15 +0000] [38869] [INFO] User vadmin@sjsue.edu is logging in
+[2021-05-03 14:04:15 +0000] [38869] [ERROR] Login failed
+[2021-05-03 14:04:24 +0000] [38869] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 14:04:44 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 14:04:48 +0000] [38869] [INFO] Fetching all camping data
+[2021-05-03 14:04:51 +0000] [38869] [INFO] Fetching all hiking data
+[2021-05-03 14:04:54 +0000] [38869] [INFO] Fetching all tour data
+[2021-05-03 14:04:57 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 14:05:32 +0000] [38869] [INFO] Get booking activity for tourist id 1 
+[2021-05-03 14:18:16 +0000] [38869] [INFO] User is not registered as employee.
+[2021-05-03 14:19:14 +0000] [38869] [INFO] User is not registered as employee.
+[2021-05-03 14:19:36 +0000] [38869] [INFO] User is not registered as employee.
+[2021-05-03 14:20:47 +0000] [38869] [INFO] User is not registered as employee.
+[2021-05-03 14:21:03 +0000] [38869] [INFO] User is not registered as employee.
+[2021-05-03 15:00:26 +0000] [38869] [INFO] Creating user. User name is Vishal Shinde and role is Tourist
+[2021-05-03 15:00:26 +0000] [38869] [ERROR] 1062 (23000): Duplicate entry '2' for key 'Tourist.PRIMARY'
+[2021-05-03 15:03:54 +0000] [38869] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 15:04:58 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 15:07:40 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 15:10:21 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 15:11:17 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 16:36:34 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 16:37:52 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 17:49:52 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.employee' doesn't exist
+[2021-05-03 17:59:23 +0000] [38869] [INFO] Fetching employee data
+[2021-05-03 17:59:34 +0000] [38869] [INFO] Fetching all inventories
+[2021-05-03 17:59:34 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 17:59:46 +0000] [38869] [INFO] fetching all accounts. 
+
+[2021-05-03 17:59:46 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.account' doesn't exist
+[2021-05-03 17:59:50 +0000] [38869] [INFO] fetching all accounts. 
+
+[2021-05-03 17:59:50 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.account' doesn't exist
+[2021-05-03 18:17:05 +0000] [38869] [INFO] Fetching employee data
+[2021-05-03 18:47:13 +0000] [38869] [INFO] Fetching all inventories
+[2021-05-03 18:47:13 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 18:57:43 +0000] [38869] [INFO] Fetching all inventories
+[2021-05-03 18:57:43 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 18:57:51 +0000] [38869] [INFO] Fetching all inventories
+[2021-05-03 18:57:51 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 18:57:58 +0000] [38869] [INFO] Fetching all inventories
+[2021-05-03 18:57:58 +0000] [38869] [ERROR] 1146 (42S02): Table 'national_park.inventory' doesn't exist
+[2021-05-03 19:21:13 +0000] [38856] [INFO] Handling signal: term
+[2021-05-03 19:21:13 +0000] [38869] [INFO] Worker exiting (pid: 38869)
+[2021-05-03 19:21:13 +0000] [38856] [WARNING] Worker with pid 38869 was terminated due to signal 15
+[2021-05-03 19:21:14 +0000] [38856] [INFO] Shutting down: Master
+[2021-05-03 19:21:14 +0000] [42494] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 19:21:14 +0000] [42494] [INFO] Listening at: http://127.0.0.1:8000 (42494)
+[2021-05-03 19:21:14 +0000] [42494] [INFO] Using worker: sync
+[2021-05-03 19:21:14 +0000] [42505] [INFO] Booting worker with pid: 42505
+[2021-05-03 19:23:23 +0000] [42505] [INFO] Inserting employee Vishal Shinde. Role is Accounts clerk
+[2021-05-03 19:25:46 +0000] [42505] [INFO] Creating user. User name is Vishal Shinde and role is Accounts clerk
+[2021-05-03 19:25:46 +0000] [42505] [ERROR] 1062 (23000): Duplicate entry '3' for key 'Tourist.PRIMARY'
+[2021-05-03 19:26:01 +0000] [42505] [INFO] Fetching all inventories
+[2021-05-03 19:26:02 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 19:26:28 +0000] [42505] [INFO] Fetching all inventories
+[2021-05-03 19:27:27 +0000] [42505] [ERROR] 'emp_id'
+[2021-05-03 19:27:27 +0000] [42505] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 19:28:38 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 19:29:05 +0000] [42505] [ERROR] 1062 (23000): Duplicate entry '4' for key 'Account.PRIMARY'
+[2021-05-03 19:30:04 +0000] [42505] [ERROR] 1062 (23000): Duplicate entry '4' for key 'Account.PRIMARY'
+[2021-05-03 21:31:25 +0000] [42505] [INFO] Fetching all camping data
+[2021-05-03 21:32:29 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 21:32:30 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 21:32:55 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 21:42:25 +0000] [42505] [INFO] Fetching all species in the park
+[2021-05-03 21:43:47 +0000] [42505] [INFO] Fetching all species in the park
+[2021-05-03 21:44:31 +0000] [42505] [INFO] User v3@sjsu.edu is logging in
+[2021-05-03 21:44:46 +0000] [42505] [INFO] Fetching all species in the park
+[2021-05-03 21:44:55 +0000] [42505] [INFO] Fetching all inventories
+[2021-05-03 21:45:01 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 21:48:18 +0000] [42505] [INFO] Fetching all species in the park
+[2021-05-03 21:49:52 +0000] [42505] [INFO] Creating user. User name is Puneet Yadav and role is Tourist
+[2021-05-03 21:49:52 +0000] [42505] [ERROR] 1062 (23000): Duplicate entry '4' for key 'Tourist.PRIMARY'
+[2021-05-03 21:50:15 +0000] [42505] [INFO] Fetching all camping data
+[2021-05-03 21:50:29 +0000] [42505] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 21:50:44 +0000] [42505] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 21:50:49 +0000] [42505] [INFO] Fetching all hiking data
+[2021-05-03 21:50:56 +0000] [42505] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 21:51:05 +0000] [42505] [INFO] Delete booking for 4,14,2021-05-27 00:00:00
+[2021-05-03 21:51:05 +0000] [42505] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 21:51:10 +0000] [42505] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 21:51:20 +0000] [42505] [INFO] Fetching all camping data
+[2021-05-03 21:51:26 +0000] [42505] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 21:51:44 +0000] [42505] [INFO] Fetching all species in the park
+[2021-05-03 21:52:21 +0000] [42505] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 21:52:25 +0000] [42505] [INFO] Fetching all inventories
+[2021-05-03 21:52:30 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 21:53:00 +0000] [42505] [INFO] Fetching all inventories
+[2021-05-03 21:56:18 +0000] [42505] [INFO] fetching all accounts. 
+
+[2021-05-03 21:58:24 +0000] [42505] [INFO] Fetching all species in the park
+[2021-05-03 21:58:32 +0000] [42494] [INFO] Handling signal: term
+[2021-05-03 21:58:32 +0000] [42505] [INFO] Worker exiting (pid: 42505)
+[2021-05-03 21:58:32 +0000] [42494] [INFO] Shutting down: Master
+[2021-05-03 21:58:32 +0000] [43128] [INFO] Starting gunicorn 20.1.0
+[2021-05-03 21:58:32 +0000] [43128] [INFO] Listening at: http://127.0.0.1:8000 (43128)
+[2021-05-03 21:58:32 +0000] [43128] [INFO] Using worker: sync
+[2021-05-03 21:58:32 +0000] [43139] [INFO] Booting worker with pid: 43139
+[2021-05-03 22:06:57 +0000] [43139] [INFO] Creating user. User name is Pun yad and role is Tourist
+[2021-05-03 22:06:57 +0000] [43139] [ERROR] 1062 (23000): Duplicate entry '1' for key 'Tourist.PRIMARY'
+[2021-05-03 22:09:40 +0000] [43139] [INFO] User is not registered as employee.
+[2021-05-03 22:09:43 +0000] [43139] [INFO] User is not registered as employee.
+[2021-05-03 22:09:46 +0000] [43139] [INFO] Creating user. User name is asdsda and role is Tourist
+[2021-05-03 22:09:46 +0000] [43139] [ERROR] 1062 (23000): Duplicate entry '2' for key 'Tourist.PRIMARY'
+[2021-05-03 22:10:17 +0000] [43139] [INFO] User is not registered as employee.
+[2021-05-03 22:13:30 +0000] [43139] [INFO] Creating user. User name is Puneet Yadav and role is Tourist
+[2021-05-03 22:13:30 +0000] [43139] [ERROR] 1062 (23000): Duplicate entry '3' for key 'Tourist.PRIMARY'
+[2021-05-03 22:17:57 +0000] [43139] [INFO] Fetching all camping data
+[2021-05-03 22:18:18 +0000] [43139] [INFO] Fetching all camping data
+[2021-05-03 22:19:15 +0000] [43139] [INFO] Fetching all camping data
+[2021-05-03 22:27:32 +0000] [43139] [INFO] Fetching all hiking data
+[2021-05-03 22:28:02 +0000] [43139] [INFO] Fetching all tour data
+[2021-05-03 22:29:50 +0000] [43139] [INFO] Get booking activity for tourist id 3 
+[2021-05-03 22:30:07 +0000] [43139] [INFO] Fetching all tour data
+[2021-05-03 22:30:16 +0000] [43139] [INFO] Get booking activity for tourist id 3 
+[2021-05-03 22:34:08 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:34:08 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:34:14 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:34:14 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:34:15 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:34:15 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:35:19 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 22:35:26 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 22:36:18 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:36:18 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:36:23 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:36:23 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:36:25 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:36:25 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:36:42 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:36:42 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:36:51 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:36:51 +0000] [43139] [ERROR] Login failed
+[2021-05-03 22:37:44 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-03 22:42:46 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-03 22:42:48 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 22:43:26 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 22:44:08 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 22:45:16 +0000] [43139] [ERROR] 1062 (23000): Duplicate entry '4' for key 'Account.PRIMARY'
+[2021-05-03 22:45:48 +0000] [43139] [ERROR] 'emp_id'
+[2021-05-03 22:45:48 +0000] [43139] [ERROR] Exception on /account [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/account.py", line 64, in account
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 22:47:28 +0000] [43139] [INFO] Creating user. User name is Vishal Shinde and role is Tourist
+[2021-05-03 22:47:28 +0000] [43139] [ERROR] 1062 (23000): Duplicate entry '4' for key 'Tourist.PRIMARY'
+[2021-05-03 22:48:30 +0000] [43139] [INFO] Creating user. User name is Vishal Shinde and role is Tourist
+[2021-05-03 22:48:30 +0000] [43139] [INFO] Adding tourist  5 
+[2021-05-03 22:48:30 +0000] [43139] [INFO] Tourist added
+[2021-05-03 22:48:46 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:49:17 +0000] [43139] [INFO] Inserting employee Vishal Clerk. Role is Accounts clerk
+[2021-05-03 22:50:08 +0000] [43139] [INFO] Creating user. User name is Vishal Clerk and role is Accounts clerk
+[2021-05-03 22:50:08 +0000] [43139] [INFO] Adding tourist  6 
+[2021-05-03 22:50:08 +0000] [43139] [INFO] Tourist added
+[2021-05-03 22:50:11 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 22:50:31 +0000] [43139] [ERROR] 1062 (23000): Duplicate entry '4' for key 'Account.PRIMARY'
+[2021-05-03 22:59:30 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 22:59:37 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-03 23:02:30 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 23:03:04 +0000] [43139] [ERROR] 'emp_id'
+[2021-05-03 23:03:04 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 23:03:15 +0000] [43139] [ERROR] 'emp_id'
+[2021-05-03 23:03:15 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 23:04:51 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 23:07:04 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 23:07:14 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-03 23:07:38 +0000] [43139] [ERROR] 'emp_id'
+[2021-05-03 23:07:38 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 23:08:37 +0000] [43139] [ERROR] 'inv_id'
+[2021-05-03 23:08:37 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 23:10:03 +0000] [43139] [INFO] Inserting employee Rahul . Role is Tour guide
+[2021-05-03 23:24:47 +0000] [43139] [INFO] Fetching all species in the park
+[2021-05-03 23:27:03 +0000] [43139] [INFO] Fetching all species in the park
+[2021-05-03 23:27:31 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-03 23:27:39 +0000] [43139] [INFO] Fetching all camping data
+[2021-05-03 23:28:01 +0000] [43139] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 23:28:12 +0000] [43139] [INFO] Fetching all camping data
+[2021-05-03 23:28:21 +0000] [43139] [INFO] Get booking activity for tourist id 4 
+[2021-05-03 23:58:06 +0000] [43139] [ERROR] 'inv_id'
+[2021-05-03 23:58:06 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-03 23:58:56 +0000] [43139] [INFO] User v1@sjsu.edu is logging in
+[2021-05-03 23:59:11 +0000] [43139] [INFO] User v2@sjsu.edu is logging in
+[2021-05-03 23:59:14 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-03 23:59:42 +0000] [43139] [INFO] Posting account data for Employee id 579751. Transaction id is 19
+[2021-05-03 23:59:42 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-04 00:00:19 +0000] [43139] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-04 00:00:22 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-04 00:00:44 +0000] [43139] [ERROR] 'inv_id'
+[2021-05-04 00:00:44 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-04 00:03:21 +0000] [43139] [INFO] Fetching all camping data
+[2021-05-04 00:03:29 +0000] [43139] [INFO] Get booking activity for tourist id 4 
+[2021-05-04 00:06:01 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-04 00:06:41 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-04 00:18:10 +0000] [43139] [INFO] Posting account data for Employee id 1. Transaction id is 20
+[2021-05-04 00:18:10 +0000] [43139] [INFO] fetching all accounts. 
+
+[2021-05-04 00:18:25 +0000] [43139] [INFO] Fetching all inventories
+[2021-05-04 00:18:57 +0000] [43139] [ERROR] 'inv_id'
+[2021-05-04 00:18:57 +0000] [43139] [ERROR] Exception on /inventory [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/Projects/National-Park-Management-System/backend/inventory.py", line 69, in inventory
+    cursor.close()
+UnboundLocalError: local variable 'cursor' referenced before assignment
+[2021-05-04 00:21:45 +0000] [43139] [INFO] Worker exiting (pid: 43139)
+[2021-05-04 00:21:45 +0000] [43128] [INFO] Handling signal: term
+[2021-05-04 00:21:45 +0000] [43128] [WARNING] Worker with pid 43139 was terminated due to signal 15
+[2021-05-04 00:21:45 +0000] [43128] [INFO] Shutting down: Master
+[2021-05-04 00:21:45 +0000] [43835] [INFO] Starting gunicorn 20.1.0
+[2021-05-04 00:21:45 +0000] [43835] [INFO] Listening at: http://127.0.0.1:8000 (43835)
+[2021-05-04 00:21:45 +0000] [43835] [INFO] Using worker: sync
+[2021-05-04 00:21:45 +0000] [43847] [INFO] Booting worker with pid: 43847
+[2021-05-04 00:22:30 +0000] [43847] [INFO] Inserting inventory data. Inventory id is 628931
+[2021-05-04 00:22:30 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 00:24:17 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 00:27:02 +0000] [43847] [INFO] Inserting employee Vishal Dept. Role is Department manager
+[2021-05-04 00:28:01 +0000] [43847] [INFO] Inserting employee Vishal Dept. Role is Forest officer
+[2021-05-04 00:28:32 +0000] [43847] [INFO] Creating user. User name is Vishal Department and role is Department manager
+[2021-05-04 00:28:32 +0000] [43847] [INFO] Adding tourist  7 
+[2021-05-04 00:28:32 +0000] [43847] [INFO] Tourist added
+[2021-05-04 00:28:36 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 00:28:55 +0000] [43847] [INFO] Inserting inventory data. Inventory id is 623811
+[2021-05-04 00:28:55 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:03:04 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:03:12 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:08:20 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:09:02 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:10:01 +0000] [43847] [INFO] Inserting species Phytoplankten
+[2021-05-04 01:10:01 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:11:34 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:11:46 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:12:00 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:12:19 +0000] [43847] [INFO] Inserting inventory data. Inventory id is 260682
+[2021-05-04 01:12:19 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:12:44 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:13:45 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:13:50 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:39:05 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:39:17 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:43:55 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:46:12 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:46:43 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:48:43 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 01:48:52 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 01:49:20 +0000] [43847] [INFO] User v2@sjsu.edu is logging in
+[2021-05-04 01:49:22 +0000] [43847] [INFO] fetching all accounts. 
+
+[2021-05-04 01:50:13 +0000] [43847] [INFO] Creating user. User name is Vishal Ticket Issuer and role is Forest officer
+[2021-05-04 01:50:13 +0000] [43847] [INFO] Adding tourist  8 
+[2021-05-04 01:50:13 +0000] [43847] [INFO] Tourist added
+[2021-05-04 01:58:04 +0000] [43847] [INFO] User is not registered as employee.
+[2021-05-04 02:03:56 +0000] [43847] [INFO] User vadmin@sjsu.edu is logging in
+[2021-05-04 02:04:36 +0000] [43847] [INFO] Inserting employee Vishal Ticket Issuer. Role is Ticket issuer
+[2021-05-04 02:04:40 +0000] [43847] [INFO] fetching all accounts. 
+
+[2021-05-04 02:05:02 +0000] [43847] [INFO] Creating user. User name is Vishal Ticket Issuer and role is Ticket issuer
+[2021-05-04 02:05:02 +0000] [43847] [INFO] Adding tourist  9 
+[2021-05-04 02:05:02 +0000] [43847] [INFO] Tourist added
+[2021-05-04 02:05:13 +0000] [43847] [INFO] Fetching all camping data
+[2021-05-04 02:05:20 +0000] [43847] [INFO] Get booking activity for tourist id 9 
+[2021-05-04 02:05:27 +0000] [43847] [INFO] Fetching all hiking data
+[2021-05-04 02:05:35 +0000] [43847] [INFO] Get booking activity for tourist id 9 
+[2021-05-04 02:05:42 +0000] [43847] [INFO] Get booking activity for tourist id 9 
+[2021-05-04 02:06:09 +0000] [43847] [INFO] User v1@sjsu.edu is logging in
+[2021-05-04 02:06:14 +0000] [43847] [INFO] Fetching all camping data
+[2021-05-04 02:06:24 +0000] [43847] [INFO] Get booking activity for tourist id 5 
+[2021-05-04 02:06:32 +0000] [43847] [INFO] Fetching all species in the park
+[2021-05-04 02:20:45 +0000] [43847] [INFO] Creating user. User name is Boss and role is Tourist
+[2021-05-04 02:20:45 +0000] [43847] [INFO] Adding tourist  10 
+[2021-05-04 02:20:45 +0000] [43847] [INFO] Tourist added
+[2021-05-04 02:21:28 +0000] [43847] [INFO] Fetching all camping data
+[2021-05-04 02:24:23 +0000] [43847] [ERROR] 1146 (42S02): Table 'national_park.User' doesn't exist
+[2021-05-04 02:25:22 +0000] [43847] [ERROR] 1146 (42S02): Table 'national_park.User' doesn't exist
+[2021-05-04 02:25:54 +0000] [43847] [INFO] Creating user. User name is Boss and role is Tourist
+[2021-05-04 02:25:54 +0000] [43847] [ERROR] 1062 (23000): Duplicate entry '1' for key 'Tourist.PRIMARY'
+[2021-05-04 02:36:51 +0000] [43847] [INFO] User boss@boss.com is logging in
+[2021-05-04 02:37:36 +0000] [43847] [INFO] User boss@boss.com is logging in
+[2021-05-04 02:39:03 +0000] [43847] [INFO] User boss@boss.com is logging in
+[2021-05-04 02:39:07 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 02:39:31 +0000] [43847] [ERROR] 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`national_park`.`Manage_Inventory`, CONSTRAINT `Manage_Inventory_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `Department_Manager` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2021-05-04 02:39:44 +0000] [43847] [ERROR] 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`national_park`.`Manage_Inventory`, CONSTRAINT `Manage_Inventory_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `Department_Manager` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2021-05-04 02:42:08 +0000] [43847] [ERROR] 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`national_park`.`Manage_Inventory`, CONSTRAINT `Manage_Inventory_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `Department_Manager` (`emp_id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2021-05-04 02:42:27 +0000] [43847] [INFO] Inserting inventory data. Inventory id is 854179
+[2021-05-04 02:42:27 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 02:42:32 +0000] [43847] [INFO] fetching all accounts. 
+
+[2021-05-04 02:43:18 +0000] [43847] [INFO] Posting account data for Employee id 21. Transaction id is 9
+[2021-05-04 02:43:18 +0000] [43847] [INFO] fetching all accounts. 
+
+[2021-05-04 02:44:04 +0000] [43847] [INFO] Inserting employee Vishal Ticket Issuer. Role is Ticket issuer
+[2021-05-04 02:44:32 +0000] [43847] [INFO] Fetching all camping data
+[2021-05-04 02:45:59 +0000] [43847] [INFO] Fetching all hiking data
+[2021-05-04 02:46:47 +0000] [43847] [INFO] Fetching all tour data
+[2021-05-04 02:47:48 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 02:49:24 +0000] [43847] [INFO] Fetching all camping data
+[2021-05-04 02:50:21 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 02:53:03 +0000] [43847] [INFO] fetching all accounts. 
+
+[2021-05-04 02:53:31 +0000] [43847] [INFO] Get booking activity for tourist id 4 
+[2021-05-04 02:53:36 +0000] [43847] [INFO] Delete booking for 4,6,1974-12-25 20:22:52
+[2021-05-04 02:53:36 +0000] [43847] [INFO] Get booking activity for tourist id 4 
+[2021-05-04 03:03:12 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 03:03:15 +0000] [43847] [INFO] Fetching all inventories
+[2021-05-04 03:10:33 +0000] [43835] [INFO] Handling signal: term
+[2021-05-04 03:10:33 +0000] [43847] [INFO] Worker exiting (pid: 43847)
+[2021-05-04 03:10:33 +0000] [43835] [WARNING] Worker with pid 43847 was terminated due to signal 15
+[2021-05-04 03:10:33 +0000] [43835] [INFO] Shutting down: Master
+[2021-05-04 03:19:01 +0000] [44597] [INFO] Starting gunicorn 20.1.0
+[2021-05-04 03:19:01 +0000] [44597] [INFO] Listening at: http://127.0.0.1:8000 (44597)
+[2021-05-04 03:19:01 +0000] [44597] [INFO] Using worker: sync
+[2021-05-04 03:19:01 +0000] [44609] [INFO] Booting worker with pid: 44609
+[2021-05-04 03:19:38 +0000] [44609] [INFO] Get all activity bookings
+[2021-05-04 03:26:24 +0000] [44609] [INFO] Fetching all species in the park
+[2021-05-04 03:27:12 +0000] [44609] [INFO] User boss@boss.com is logging in
+[2021-05-04 03:27:44 +0000] [44609] [INFO] Fetching all camping data
+[2021-05-04 03:27:51 +0000] [44609] [INFO] Get booking activity for tourist id 1 
+[2021-05-04 03:28:03 +0000] [44609] [INFO] Delete booking for 1,5,2021-05-28 00:00:00
+[2021-05-04 03:28:03 +0000] [44609] [INFO] Get booking activity for tourist id 1 
+[2021-05-04 03:28:12 +0000] [44609] [INFO] Get booking activity for tourist id 1 
+[2021-05-04 03:28:22 +0000] [44609] [INFO] Fetching all hiking data
+[2021-05-04 03:28:38 +0000] [44609] [INFO] Fetching all inventories
+[2021-05-04 03:28:58 +0000] [44609] [INFO] Inserting inventory data. Inventory id is 25680
+[2021-05-04 03:28:58 +0000] [44609] [INFO] Fetching all inventories
+[2021-05-04 03:29:12 +0000] [44609] [INFO] fetching all accounts. 
+
+[2021-05-04 03:29:47 +0000] [44609] [INFO] Posting account data for Employee id 21. Transaction id is 123
+[2021-05-04 03:29:47 +0000] [44609] [INFO] fetching all accounts. 
+
+[2021-05-04 03:31:01 +0000] [44609] [INFO] Inserting employee Vishal Account Clerk. Role is Accounts clerk
+[2021-05-04 03:31:58 +0000] [44609] [INFO] Creating user. User name is Vishal Account Clerk and role is Accounts clerk
+[2021-05-04 03:31:58 +0000] [44609] [ERROR] 1062 (23000): Duplicate entry '2' for key 'Tourist.PRIMARY'
+[2021-05-04 03:32:17 +0000] [44609] [INFO] fetching all accounts. 
+
+[2021-05-04 03:32:59 +0000] [44609] [INFO] Posting account data for Employee id 487894. Transaction id is 145
+[2021-05-04 03:32:59 +0000] [44609] [INFO] fetching all accounts. 
+
+[2021-05-04 03:33:14 +0000] [44609] [INFO] Fetching all species in the park
+[2021-05-04 03:35:17 +0000] [44609] [INFO] Inserting species Himalayan Worms
+[2021-05-04 03:35:17 +0000] [44609] [INFO] Fetching all species in the park
+[2021-05-04 03:35:29 +0000] [44609] [INFO] Delete species 10164
+[2021-05-04 03:35:29 +0000] [44609] [INFO] Fetching all species in the park
+[2021-05-04 03:36:37 +0000] [44609] [INFO] User boss@boss.com is logging in
+[2021-05-04 03:38:00 +0000] [44609] [INFO] Inserting employee Vishal Ticket Issuer. Role is Ticket issuer
+[2021-05-04 03:38:59 +0000] [44609] [INFO] User is not registered as employee.
+[2021-05-04 03:39:07 +0000] [44609] [INFO] Creating user. User name is Vishal Tourist and role is Tourist
+[2021-05-04 03:39:07 +0000] [44609] [ERROR] 1062 (23000): Duplicate entry '3' for key 'Tourist.PRIMARY'
+[2021-05-04 03:39:29 +0000] [44609] [INFO] Fetching all species in the park
+[2021-05-04 03:39:41 +0000] [44609] [INFO] Fetching all camping data
+[2021-05-04 03:39:47 +0000] [44609] [INFO] Get booking activity for tourist id 3 
+[2021-05-04 03:40:21 +0000] [44609] [INFO] Get booking activity for tourist id 3 
