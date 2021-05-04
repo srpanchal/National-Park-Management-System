@@ -23,14 +23,23 @@ export default function CreateAccount() {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.ok)
+          return res.json();
+
+        return null;
+      })
       .then(json => {
-        storeUser(json);
+        if (json) {
+          storeUser(json);
         
-        if (json.role === USER_ROLES.tourist) {
-          history.replace('/');
+          if (json.role === USER_ROLES.tourist) {
+            history.replace('/');
+          } else {
+            history.replace('/employee-home');
+          }
         } else {
-          history.replace('/employee-home');
+          alert('Account Creation Failed!!');
         }
       });
   }

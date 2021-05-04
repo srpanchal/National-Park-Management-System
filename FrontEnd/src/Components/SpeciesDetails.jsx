@@ -17,7 +17,6 @@ class SpeciesDetails extends React.Component {
             selectedSpecies_Id: '',
             showModal: false,
             newSpecies: {
-                species_id: '',
                 name: '',
                 age: 0,
                 description: '',
@@ -177,9 +176,10 @@ class SpeciesDetails extends React.Component {
                         <Col sm={6}>
 
 
-                            <Alert variant='primary'>  Total Number of Male Species {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[0].count} and
-Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[1].count}
-
+                            <Alert variant='primary'>
+                                Total Number of Male Species: {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[0].count}
+                                <br />
+                                Total Number of Female Species: {this.state.stats.gender_stats.length > 0 && this.state.stats.gender_stats[1].count}
                             </Alert>
 
                         </Col>
@@ -351,8 +351,6 @@ Total Number of Female Species {this.state.stats.gender_stats.length > 0 && this
                         </Modal.Header>
                         <Modal.Body>
                             <Form>
-                                <Form.Label>Species ID</Form.Label>
-                                <Form.Control type="text" placeholder="enter here" onChange={e => this.handleChange('species_id', e.target.value)} />
                                 <Form.Label>name</Form.Label>
                                 <Form.Control type="text" placeholder="enter here" onChange={(e => this.handleChange('name', e.target.value))} />
                                 <Form.Label>Age</Form.Label>

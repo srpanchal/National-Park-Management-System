@@ -12,8 +12,18 @@ const CreateEmployee = () => {
       },
       body: JSON.stringify(data)
     })
-    .then(res => res.json())
-    .then(json => console.log('---ADDED EMPLOYEE---', json));
+    .then(res => {
+      if (res.ok)
+        return res.json();
+
+      return null;
+    })
+    .then(json => {
+      if (json)
+        alert("Employee Created Successfully!!");
+      else
+        alert("Employee Creation Failed!!");
+    });
   }
 
   return (

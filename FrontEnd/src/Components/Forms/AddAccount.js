@@ -23,7 +23,7 @@ const AddAccount = ({ onSubmit }) => {
         type,
         amount,
         details,
-        emp_id: getUser().id
+        emp_id: getUser().emp_id
       });
     }
   };
