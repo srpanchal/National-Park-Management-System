@@ -187,7 +187,7 @@ create table Manage_Account (
 
 create table Forest_Officer (
 	emp_id		varchar(10),
-	post		varchar(20),
+	post		varchar(40),
 	primary key (emp_id),
 	foreign key (emp_id) references Employee(emp_id) on delete cascade on update cascade
 );
