@@ -1,3 +1,5 @@
+/* SJSU CMPE 138 Spring 2021 TEAM8 */
+
 import { EMPLOYEE_ROLES, USER_ROLES } from './constants';
 
 export const storeUser = (data) => {

@@ -1,3 +1,5 @@
+/* SJSU CMPE 138 Spring 2021 TEAM8 */
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar} from "react-bootstrap";

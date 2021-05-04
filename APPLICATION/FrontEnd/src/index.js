@@ -1,3 +1,5 @@
+/* SJSU CMPE 138 Spring 2021 TEAM8 */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

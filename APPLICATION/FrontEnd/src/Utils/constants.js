@@ -1,5 +1,6 @@
+/* SJSU CMPE 138 Spring 2021 TEAM8 */
+
 export const API_URL = 'http://50.18.241.42';
-// export const API_URL = 'http://localhost:5000';
 
 export const USER_ROLES = {
   tourist: "Tourist",

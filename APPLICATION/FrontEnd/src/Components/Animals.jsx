@@ -1,3 +1,5 @@
+/* SJSU CMPE 138 Spring 2021 TEAM8 */
+
 import React from 'react';
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";

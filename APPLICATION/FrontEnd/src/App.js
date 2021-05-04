@@ -1,3 +1,4 @@
+/* SJSU CMPE 138 Spring 2021 TEAM8 */
 
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
